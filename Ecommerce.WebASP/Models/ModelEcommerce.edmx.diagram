@@ -4,29 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3934040e26bf46a2b29dac637ab134de" Name="Diagram1">
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_CATEGORIA" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_CLIENTE" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_DETALLE_PEDIDO" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_DETALLEIMPUESTOS" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_DIRECCIONES" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_FORMA_PAGO" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_IMPUESTOS" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_PAGO" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_PEDIDO" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_PRODUCTO" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_ROL" Width="1.5" PointX="10.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_ECOMMERCEModel.TBL_USUARIO" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="BDD_ECOMMERCEModel.FK_TBL_PROD_RELATIONS_TBL_CATE" ManuallyRouted="false" />
-        <AssociationConnector Association="BDD_ECOMMERCEModel.FK_TBL_DIRE_RELATIONS_TBL_CLIE" ManuallyRouted="false" />
-        <AssociationConnector Association="BDD_ECOMMERCEModel.FK_TBL_PEDI_RELATIONS_TBL_CLIE" ManuallyRouted="false" />
-        <AssociationConnector Association="BDD_ECOMMERCEModel.FK_TBL_DETA_RELATIONS_TBL_DETA" ManuallyRouted="false" />
-        <AssociationConnector Association="BDD_ECOMMERCEModel.FK_TBL_DETA_RELATIONS_TBL_PEDI" ManuallyRouted="false" />
-        <AssociationConnector Association="BDD_ECOMMERCEModel.FK_TBL_DETA_RELATIONS_TBL_PROD" ManuallyRouted="false" />
-        <AssociationConnector Association="BDD_ECOMMERCEModel.FK_TBL_DETA_RELATIONS_TBL_IMPU" ManuallyRouted="false" />
-        <AssociationConnector Association="BDD_ECOMMERCEModel.FK_TBL_PAGO_RELATIONS_TBL_FORM" ManuallyRouted="false" />
-        <AssociationConnector Association="BDD_ECOMMERCEModel.FK_TBL_PAGO_RELATIONS_TBL_PEDI" ManuallyRouted="false" />
-        <AssociationConnector Association="BDD_ECOMMERCEModel.FK_TBL_USUA_RELATIONS_TBL_ROL" ManuallyRouted="false" />
+      <Diagram DiagramId="2363f084d0f944acbd1a9ef93311f3ef" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="EcommerceModel.TBL_CATEGORIA" Width="1.5" PointX="3.75" PointY="13.75" />
+        <EntityTypeShape EntityType="EcommerceModel.TBL_CLIENTE" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="EcommerceModel.TBL_DETALLE_IMPUESTOS" Width="1.5" PointX="10.5" PointY="8.625" />
+        <EntityTypeShape EntityType="EcommerceModel.TBL_DETALLE_PEDIDO" Width="1.5" PointX="8.25" PointY="8.125" />
+        <EntityTypeShape EntityType="EcommerceModel.TBL_DIRECCION" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="EcommerceModel.TBL_FORMA_PAGO" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="EcommerceModel.TBL_IMPUESTOS" Width="1.5" PointX="8.25" PointY="4.625" />
+        <EntityTypeShape EntityType="EcommerceModel.TBL_PAGOS" Width="1.5" PointX="5.25" PointY="8.375" />
+        <EntityTypeShape EntityType="EcommerceModel.TBL_PEDIDO" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="EcommerceModel.TBL_PRODUCTO" Width="1.5" PointX="6" PointY="13" />
+        <EntityTypeShape EntityType="EcommerceModel.TBL_ROL" Width="1.5" PointX="10.75" PointY="2.375" />
+        <EntityTypeShape EntityType="EcommerceModel.TBL_USUARIO" Width="1.5" PointX="13" PointY="2" />
+        <AssociationConnector Association="EcommerceModel.FK_TBL_PROD_RELATIONS_TBL_CATE" />
+        <AssociationConnector Association="EcommerceModel.FK_TBL_DIRE_RELATIONS_TBL_CLIE" />
+        <AssociationConnector Association="EcommerceModel.FK_TBL_PEDI_RELATIONS_TBL_CLIE" />
+        <AssociationConnector Association="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_DETA" />
+        <AssociationConnector Association="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_IMPU" />
+        <AssociationConnector Association="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_PEDI" />
+        <AssociationConnector Association="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_PROD" />
+        <AssociationConnector Association="EcommerceModel.FK_TBL_PAGO_RELATIONS_TBL_FORM" />
+        <AssociationConnector Association="EcommerceModel.FK_TBL_PAGO_RELATIONS_TBL_PEDI" />
+        <AssociationConnector Association="EcommerceModel.FK_TBL_USUA_RELATIONS_TBL_ROL" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -4,97 +4,97 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BDD_ECOMMERCEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EcommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TBL_CATEGORIA">
           <Key>
-            <PropertyRef Name="CATP_ID" />
+            <PropertyRef Name="CAT_ID" />
           </Key>
-          <Property Name="CATP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CATP_NOMBRE" Type="varchar" MaxLength="100" />
-          <Property Name="CATP_DESCRIPCION" Type="varchar" MaxLength="100" />
-          <Property Name="CATP_ESTADO" Type="char" MaxLength="1" />
-          <Property Name="CAPT_LOG" Type="varchar" MaxLength="100" />
-          <Property Name="CAPT_ADD" Type="datetime" />
+          <Property Name="CAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAT_NOMBRE" Type="varchar" MaxLength="200" />
+          <Property Name="CAT_DESCRIPCION" Type="varchar" MaxLength="200" />
+          <Property Name="CAT_ESTADO" Type="varchar" MaxLength="200" />
+          <Property Name="CAT_FECHA_CREACION" Type="datetime" />
         </EntityType>
         <EntityType Name="TBL_CLIENTE">
           <Key>
             <PropertyRef Name="CLI_ID" />
-            <PropertyRef Name="CLI_DNI" />
+            <PropertyRef Name="CLI_IDENTIFICACION" />
           </Key>
-          <Property Name="CLI_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CLI_DNI" Type="int" Nullable="false" />
-          <Property Name="CLI_TIPO_DNI" Type="char" MaxLength="1" />
-          <Property Name="CLI_APELLIDOS" Type="varchar" MaxLength="100" />
-          <Property Name="CLI_NOMBRES" Type="varchar" MaxLength="100" />
-          <Property Name="CLI_GENERO" Type="char" MaxLength="1" />
-          <Property Name="CLI_FECHANACIMIENTO" Type="datetime" />
-          <Property Name="CLI_TELEFONO" Type="numeric" Precision="10" Scale="0" />
-          <Property Name="CLI_CELULAR" Type="varchar" MaxLength="12" />
+          <Property Name="CLI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLI_DIRECCION" Type="varchar" MaxLength="200" />
+          <Property Name="CLI_TELEFONO" Type="varchar" MaxLength="9" />
+          <Property Name="CLI_TIPO_IDENTIFICACION" Type="varchar" MaxLength="200" />
+          <Property Name="CLI_IDENTIFICACION" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CLI_FECHA_CREACION" Type="datetime" />
+          <Property Name="CLI_ESTADO" Type="varchar" MaxLength="10" />
+          <Property Name="CLI_APELLIDOS" Type="varchar" MaxLength="200" />
+          <Property Name="CLI_NOMBRES" Type="varchar" MaxLength="200" />
+          <Property Name="CLI_GENERO" Type="varchar" MaxLength="200" />
+          <Property Name="CLI_FECHA_NACIMIENTO" Type="datetime" />
+          <Property Name="CLI_CELULAR" Type="varchar" MaxLength="10" />
           <Property Name="CLI_CORREO" Type="varchar" MaxLength="200" />
-          <Property Name="CLI_ESTADO" Type="char" MaxLength="1" />
-          <Property Name="CLI_ADD" Type="varchar" MaxLength="200" />
         </EntityType>
-        <EntityType Name="TBL_DETALLE_PEDIDO">
-          <Key>
-            <PropertyRef Name="DEP_CODIGO" />
-          </Key>
-          <Property Name="DEP_CODIGO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PED_ID" Type="int" />
-          <Property Name="PED_FECHA" Type="datetime" />
-          <Property Name="PRO_ID" Type="int" />
-          <Property Name="DEP_DESCRIPCION" Type="varchar" MaxLength="100" />
-          <Property Name="DEP_CANTIDAD" Type="int" />
-          <Property Name="DEP_PRECIO_UNITARIO" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="DEP_PRECIOTOTAL" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="DEP_ESTADO" Type="char" MaxLength="1" />
-        </EntityType>
-        <EntityType Name="TBL_DETALLEIMPUESTOS">
+        <EntityType Name="TBL_DETALLE_IMPUESTOS">
           <Key>
             <PropertyRef Name="DIM_ID" />
           </Key>
           <Property Name="DIM_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DEP_CODIGO" Type="int" />
           <Property Name="IMP_ID" Type="int" />
+          <Property Name="DEP_ID" Type="int" />
           <Property Name="DIM_VALOR" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="DIM_ESTADO" Type="char" MaxLength="1" />
+          <Property Name="DIM_ESTADO" Type="varchar" MaxLength="10" />
         </EntityType>
-        <EntityType Name="TBL_DIRECCIONES">
+        <EntityType Name="TBL_DETALLE_PEDIDO">
+          <Key>
+            <PropertyRef Name="DEP_ID" />
+          </Key>
+          <Property Name="DEP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PED_ID" Type="int" />
+          <Property Name="PED_FECHA" Type="datetime" />
+          <Property Name="PRO_ID" Type="int" />
+          <Property Name="DEP_CANTIDAD" Type="int" />
+          <Property Name="DEP_DESCRIPCION" Type="varchar" MaxLength="200" />
+          <Property Name="DEP_PRECIOUNITARIO" Type="decimal" Precision="8" Scale="4" />
+          <Property Name="DEP_PRECIOTOTAL" Type="decimal" Precision="8" Scale="4" />
+          <Property Name="DEP_ESTADO" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="TBL_DIRECCION">
           <Key>
             <PropertyRef Name="DIR_ID" />
           </Key>
           <Property Name="DIR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CLI_ID" Type="bigint" />
-          <Property Name="CLI_DNI" Type="int" />
-          <Property Name="DIR_PRIMEARIA" Type="varchar" MaxLength="100" />
-          <Property Name="DIR_SECUNDARIA" Type="varchar" MaxLength="100" />
-          <Property Name="DIR_NUMERACION" Type="varchar" MaxLength="100" />
-          <Property Name="DIR_REFERENCIA" Type="varchar" MaxLength="100" />
-          <Property Name="DIR_ESTADO" Type="char" MaxLength="1" />
-          <Property Name="DIR_ADD" Type="datetime" />
-          <Property Name="DIR_CODIGOPOSTAL" Type="varchar" MaxLength="8" />
+          <Property Name="CLI_ID" Type="int" />
+          <Property Name="CLI_IDENTIFICACION" Type="varchar" MaxLength="200" />
+          <Property Name="DIR_PRINCIPAL" Type="varchar" MaxLength="200" />
+          <Property Name="DIR_SECUNDARIA" Type="varchar" MaxLength="200" />
+          <Property Name="DIR_NUMERACION" Type="varchar" MaxLength="200" />
+          <Property Name="DIR_REFERENCIA" Type="varchar" MaxLength="200" />
+          <Property Name="DIR_ESTADO" Type="varchar" MaxLength="10" />
+          <Property Name="DIR_CODIGO_POSTAL" Type="varchar" MaxLength="200" />
+          <Property Name="DIR_FECHA_CREACION" Type="datetime" />
         </EntityType>
         <EntityType Name="TBL_FORMA_PAGO">
           <Key>
             <PropertyRef Name="FPA_ID" />
           </Key>
           <Property Name="FPA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FPA_DESCRIPCION" Type="varchar" MaxLength="100" />
+          <Property Name="FPA_DESCRIPCION" Type="varchar" MaxLength="200" />
           <Property Name="FPA_CODIGOSRI" Type="varchar" MaxLength="10" />
-          <Property Name="FPA_ADD" Type="datetime" />
-          <Property Name="FPA_ESTADO" Type="char" MaxLength="1" />
+          <Property Name="FPA_ESTADO" Type="varchar" MaxLength="200" />
+          <Property Name="FPA_FECHA_CREACION" Type="datetime" />
         </EntityType>
         <EntityType Name="TBL_IMPUESTOS">
           <Key>
             <PropertyRef Name="IMP_ID" />
           </Key>
           <Property Name="IMP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IMP_CODIGOSRI" Type="varchar" MaxLength="10" />
-          <Property Name="IMP_DESCRIPCION" Type="varchar" MaxLength="100" />
-          <Property Name="IMP_PORCENTAJE" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="IMP_ESTADO" Type="char" MaxLength="1" />
-          <Property Name="IMP_ADD" Type="datetime" />
+          <Property Name="IMP_CODIGO_SRI" Type="varchar" MaxLength="20" />
+          <Property Name="IMP_DESCRIPCION" Type="varchar" MaxLength="200" />
+          <Property Name="IMP_PORCENTAJE" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="IMP_ESTADO" Type="varchar" MaxLength="10" />
+          <Property Name="IMP_FECHA_CREACION" Type="datetime" />
         </EntityType>
-        <EntityType Name="TBL_PAGO">
+        <EntityType Name="TBL_PAGOS">
           <Key>
             <PropertyRef Name="PAG_ID" />
           </Key>
@@ -103,9 +103,9 @@
           <Property Name="PED_FECHA" Type="datetime" />
           <Property Name="FPA_ID" Type="int" />
           <Property Name="PAG_FECHA" Type="datetime" />
-          <Property Name="PAG_VALOR" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="PAG_ESTADO" Type="char" MaxLength="1" />
-          <Property Name="PAG_ADD" Type="datetime" />
+          <Property Name="PAG_VALOR" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="PAG_ESTADO" Type="varchar" MaxLength="10" />
+          <Property Name="PAG_FECHA_CREACION" Type="datetime" />
         </EntityType>
         <EntityType Name="TBL_PEDIDO">
           <Key>
@@ -113,44 +113,44 @@
             <PropertyRef Name="PED_FECHA" />
           </Key>
           <Property Name="PED_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PED_FECHA" Type="datetime" Nullable="false" />
-          <Property Name="CLI_ID" Type="bigint" />
-          <Property Name="CLI_DNI" Type="int" />
-          <Property Name="PED_NUMERO" Type="int" />
-          <Property Name="PED_CLIENTE" Type="varchar" MaxLength="150" />
-          <Property Name="PED_DIRECCION" Type="varchar" MaxLength="200" />
-          <Property Name="PED_TELEFONO" Type="varchar" MaxLength="11" />
-          <Property Name="PED_DNI" Type="varchar" MaxLength="20" />
-          <Property Name="PED_TOTAL" Type="decimal" Precision="8" Scale="4" />
           <Property Name="PED_SUBTOTAL" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="PED_ESTADO" Type="char" MaxLength="1" />
-          <Property Name="PED_ADD" Type="datetime" />
+          <Property Name="PED_TOTAL" Type="decimal" Precision="8" Scale="4" />
+          <Property Name="PED_FECHA" Type="datetime" Nullable="false" />
+          <Property Name="CLI_ID" Type="int" />
+          <Property Name="CLI_IDENTIFICACION" Type="varchar" MaxLength="200" />
+          <Property Name="PED_NUMERO" Type="int" />
+          <Property Name="PED_IDENTIFICACION" Type="varchar" MaxLength="200" />
+          <Property Name="PED_CLIENTE" Type="varchar" MaxLength="200" />
+          <Property Name="PED_DIRECCION" Type="varchar" MaxLength="200" />
+          <Property Name="PED_TELEFONO" Type="varchar" MaxLength="200" />
+          <Property Name="PED_ESTADO" Type="varchar" MaxLength="10" />
+          <Property Name="PED_FECHA_CREACION" Type="datetime" />
         </EntityType>
         <EntityType Name="TBL_PRODUCTO">
           <Key>
             <PropertyRef Name="PRO_ID" />
           </Key>
-          <Property Name="PRO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CATP_ID" Type="int" />
-          <Property Name="PRO_CODIGO" Type="varchar" MaxLength="50" />
-          <Property Name="PRO_NOMBRE" Type="varchar" MaxLength="100" />
-          <Property Name="PRO_DESCRIPCION" Type="varchar" MaxLength="100" />
-          <Property Name="PRO_PRECIOCOMPRA" Type="numeric" Precision="8" Scale="4" />
-          <Property Name="PRO_PRECIO_VENTA" Type="numeric" Precision="8" Scale="4" />
-          <Property Name="PRO_IMAGEN" Type="varchar" MaxLength="500" />
-          <Property Name="PRO_ESTADO" Type="char" MaxLength="1" />
-          <Property Name="PRO_STOCKMAX" Type="int" />
-          <Property Name="PRO_STOCKMIN" Type="int" />
-          <Property Name="PRO_ADD" Type="datetime" />
+          <Property Name="PRO_ID" Type="int" Nullable="false" />
+          <Property Name="CAT_ID" Type="int" />
+          <Property Name="PRO_CODIGO" Type="varchar" MaxLength="200" />
+          <Property Name="PRO_NOMBRE" Type="varchar" MaxLength="200" />
+          <Property Name="PRO_PRECIO_COMPRA" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="PRO_PRECIO_VENTA" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="PRO_STOCK_MINIMO" Type="int" />
+          <Property Name="PRO_STOCK_MAXIMO" Type="int" />
+          <Property Name="PRO_FECHA_CREACION" Type="datetime" />
+          <Property Name="PRO_ESTADO" Type="varchar" MaxLength="10" />
+          <Property Name="PRO_IMAGEN" Type="varchar" MaxLength="200" />
+          <Property Name="PRO_DESCRIPCION" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="TBL_ROL">
           <Key>
             <PropertyRef Name="ROL_ID" />
           </Key>
           <Property Name="ROL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ROL_DESCRIPCION" Type="varchar" MaxLength="100" />
-          <Property Name="ROL_ESTADO" Type="char" MaxLength="1" />
-          <Property Name="ROL_ADD" Type="datetime" />
+          <Property Name="ROL_DESCRIPCION" Type="varchar" MaxLength="200" />
+          <Property Name="ROL_ESTADO" Type="varchar" MaxLength="10" />
+          <Property Name="ROL_FECHA_CREACION" Type="datetime" />
         </EntityType>
         <EntityType Name="TBL_USUARIO">
           <Key>
@@ -158,33 +158,33 @@
           </Key>
           <Property Name="USU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ROL_ID" Type="int" />
-          <Property Name="USU_CORREO" Type="varchar" MaxLength="100" />
-          <Property Name="USU_PASSWORD" Type="varchar" MaxLength="100" />
-          <Property Name="USU_NOMBRE" Type="varchar" MaxLength="100" />
-          <Property Name="USU_APELLIDOS" Type="varchar" MaxLength="100" />
-          <Property Name="USU_ESTADO" Type="char" MaxLength="1" />
-          <Property Name="USU_ADD" Type="datetime" />
+          <Property Name="USU_CORREO" Type="varchar" MaxLength="200" />
+          <Property Name="USU_CONTRASENA" Type="varchar" MaxLength="200" />
+          <Property Name="USU_NOMBRES" Type="varchar" MaxLength="200" />
+          <Property Name="USU_APELLIDOS" Type="varchar" MaxLength="200" />
+          <Property Name="USU_ESTADO" Type="varchar" MaxLength="10" />
+          <Property Name="USU_FECHA_CREACION" Type="datetime" />
         </EntityType>
         <Association Name="FK_TBL_DETA_RELATIONS_TBL_DETA">
           <End Role="TBL_DETALLE_PEDIDO" Type="Self.TBL_DETALLE_PEDIDO" Multiplicity="0..1" />
-          <End Role="TBL_DETALLEIMPUESTOS" Type="Self.TBL_DETALLEIMPUESTOS" Multiplicity="*" />
+          <End Role="TBL_DETALLE_IMPUESTOS" Type="Self.TBL_DETALLE_IMPUESTOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_DETALLE_PEDIDO">
-              <PropertyRef Name="DEP_CODIGO" />
+              <PropertyRef Name="DEP_ID" />
             </Principal>
-            <Dependent Role="TBL_DETALLEIMPUESTOS">
-              <PropertyRef Name="DEP_CODIGO" />
+            <Dependent Role="TBL_DETALLE_IMPUESTOS">
+              <PropertyRef Name="DEP_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_DETA_RELATIONS_TBL_IMPU">
           <End Role="TBL_IMPUESTOS" Type="Self.TBL_IMPUESTOS" Multiplicity="0..1" />
-          <End Role="TBL_DETALLEIMPUESTOS" Type="Self.TBL_DETALLEIMPUESTOS" Multiplicity="*" />
+          <End Role="TBL_DETALLE_IMPUESTOS" Type="Self.TBL_DETALLE_IMPUESTOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_IMPUESTOS">
               <PropertyRef Name="IMP_ID" />
             </Principal>
-            <Dependent Role="TBL_DETALLEIMPUESTOS">
+            <Dependent Role="TBL_DETALLE_IMPUESTOS">
               <PropertyRef Name="IMP_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -217,39 +217,39 @@
         </Association>
         <Association Name="FK_TBL_DIRE_RELATIONS_TBL_CLIE">
           <End Role="TBL_CLIENTE" Type="Self.TBL_CLIENTE" Multiplicity="0..1" />
-          <End Role="TBL_DIRECCIONES" Type="Self.TBL_DIRECCIONES" Multiplicity="*" />
+          <End Role="TBL_DIRECCION" Type="Self.TBL_DIRECCION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_CLIENTE">
               <PropertyRef Name="CLI_ID" />
-              <PropertyRef Name="CLI_DNI" />
+              <PropertyRef Name="CLI_IDENTIFICACION" />
             </Principal>
-            <Dependent Role="TBL_DIRECCIONES">
+            <Dependent Role="TBL_DIRECCION">
               <PropertyRef Name="CLI_ID" />
-              <PropertyRef Name="CLI_DNI" />
+              <PropertyRef Name="CLI_IDENTIFICACION" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_PAGO_RELATIONS_TBL_FORM">
           <End Role="TBL_FORMA_PAGO" Type="Self.TBL_FORMA_PAGO" Multiplicity="0..1" />
-          <End Role="TBL_PAGO" Type="Self.TBL_PAGO" Multiplicity="*" />
+          <End Role="TBL_PAGOS" Type="Self.TBL_PAGOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_FORMA_PAGO">
               <PropertyRef Name="FPA_ID" />
             </Principal>
-            <Dependent Role="TBL_PAGO">
+            <Dependent Role="TBL_PAGOS">
               <PropertyRef Name="FPA_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_PAGO_RELATIONS_TBL_PEDI">
           <End Role="TBL_PEDIDO" Type="Self.TBL_PEDIDO" Multiplicity="0..1" />
-          <End Role="TBL_PAGO" Type="Self.TBL_PAGO" Multiplicity="*" />
+          <End Role="TBL_PAGOS" Type="Self.TBL_PAGOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_PEDIDO">
               <PropertyRef Name="PED_ID" />
               <PropertyRef Name="PED_FECHA" />
             </Principal>
-            <Dependent Role="TBL_PAGO">
+            <Dependent Role="TBL_PAGOS">
               <PropertyRef Name="PED_ID" />
               <PropertyRef Name="PED_FECHA" />
             </Dependent>
@@ -261,11 +261,11 @@
           <ReferentialConstraint>
             <Principal Role="TBL_CLIENTE">
               <PropertyRef Name="CLI_ID" />
-              <PropertyRef Name="CLI_DNI" />
+              <PropertyRef Name="CLI_IDENTIFICACION" />
             </Principal>
             <Dependent Role="TBL_PEDIDO">
               <PropertyRef Name="CLI_ID" />
-              <PropertyRef Name="CLI_DNI" />
+              <PropertyRef Name="CLI_IDENTIFICACION" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -274,10 +274,10 @@
           <End Role="TBL_PRODUCTO" Type="Self.TBL_PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_CATEGORIA">
-              <PropertyRef Name="CATP_ID" />
+              <PropertyRef Name="CAT_ID" />
             </Principal>
             <Dependent Role="TBL_PRODUCTO">
-              <PropertyRef Name="CATP_ID" />
+              <PropertyRef Name="CAT_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -293,26 +293,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BDD_ECOMMERCEModelStoreContainer">
+        <EntityContainer Name="EcommerceModelStoreContainer">
           <EntitySet Name="TBL_CATEGORIA" EntityType="Self.TBL_CATEGORIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_CLIENTE" EntityType="Self.TBL_CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DETALLE_IMPUESTOS" EntityType="Self.TBL_DETALLE_IMPUESTOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_DETALLE_PEDIDO" EntityType="Self.TBL_DETALLE_PEDIDO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TBL_DETALLEIMPUESTOS" EntityType="Self.TBL_DETALLEIMPUESTOS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TBL_DIRECCIONES" EntityType="Self.TBL_DIRECCIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DIRECCION" EntityType="Self.TBL_DIRECCION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_FORMA_PAGO" EntityType="Self.TBL_FORMA_PAGO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_IMPUESTOS" EntityType="Self.TBL_IMPUESTOS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TBL_PAGO" EntityType="Self.TBL_PAGO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PAGOS" EntityType="Self.TBL_PAGOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_PEDIDO" EntityType="Self.TBL_PEDIDO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_PRODUCTO" EntityType="Self.TBL_PRODUCTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_ROL" EntityType="Self.TBL_ROL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_USUARIO" EntityType="Self.TBL_USUARIO" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_TBL_DETA_RELATIONS_TBL_DETA" Association="Self.FK_TBL_DETA_RELATIONS_TBL_DETA">
             <End Role="TBL_DETALLE_PEDIDO" EntitySet="TBL_DETALLE_PEDIDO" />
-            <End Role="TBL_DETALLEIMPUESTOS" EntitySet="TBL_DETALLEIMPUESTOS" />
+            <End Role="TBL_DETALLE_IMPUESTOS" EntitySet="TBL_DETALLE_IMPUESTOS" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_DETA_RELATIONS_TBL_IMPU" Association="Self.FK_TBL_DETA_RELATIONS_TBL_IMPU">
             <End Role="TBL_IMPUESTOS" EntitySet="TBL_IMPUESTOS" />
-            <End Role="TBL_DETALLEIMPUESTOS" EntitySet="TBL_DETALLEIMPUESTOS" />
+            <End Role="TBL_DETALLE_IMPUESTOS" EntitySet="TBL_DETALLE_IMPUESTOS" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_DETA_RELATIONS_TBL_PEDI" Association="Self.FK_TBL_DETA_RELATIONS_TBL_PEDI">
             <End Role="TBL_PEDIDO" EntitySet="TBL_PEDIDO" />
@@ -324,15 +324,15 @@
           </AssociationSet>
           <AssociationSet Name="FK_TBL_DIRE_RELATIONS_TBL_CLIE" Association="Self.FK_TBL_DIRE_RELATIONS_TBL_CLIE">
             <End Role="TBL_CLIENTE" EntitySet="TBL_CLIENTE" />
-            <End Role="TBL_DIRECCIONES" EntitySet="TBL_DIRECCIONES" />
+            <End Role="TBL_DIRECCION" EntitySet="TBL_DIRECCION" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_PAGO_RELATIONS_TBL_FORM" Association="Self.FK_TBL_PAGO_RELATIONS_TBL_FORM">
             <End Role="TBL_FORMA_PAGO" EntitySet="TBL_FORMA_PAGO" />
-            <End Role="TBL_PAGO" EntitySet="TBL_PAGO" />
+            <End Role="TBL_PAGOS" EntitySet="TBL_PAGOS" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_PAGO_RELATIONS_TBL_PEDI" Association="Self.FK_TBL_PAGO_RELATIONS_TBL_PEDI">
             <End Role="TBL_PEDIDO" EntitySet="TBL_PEDIDO" />
-            <End Role="TBL_PAGO" EntitySet="TBL_PAGO" />
+            <End Role="TBL_PAGOS" EntitySet="TBL_PAGOS" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_PEDI_RELATIONS_TBL_CLIE" Association="Self.FK_TBL_PEDI_RELATIONS_TBL_CLIE">
             <End Role="TBL_CLIENTE" EntitySet="TBL_CLIENTE" />
@@ -347,112 +347,165 @@
             <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="BDD_ECOMMERCEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EcommerceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EcommerceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_CATEGORIA" EntityType="EcommerceModel.TBL_CATEGORIA" />
+          <EntitySet Name="TBL_CLIENTE" EntityType="EcommerceModel.TBL_CLIENTE" />
+          <EntitySet Name="TBL_DETALLE_IMPUESTOS" EntityType="EcommerceModel.TBL_DETALLE_IMPUESTOS" />
+          <EntitySet Name="TBL_DETALLE_PEDIDO" EntityType="EcommerceModel.TBL_DETALLE_PEDIDO" />
+          <EntitySet Name="TBL_DIRECCION" EntityType="EcommerceModel.TBL_DIRECCION" />
+          <EntitySet Name="TBL_FORMA_PAGO" EntityType="EcommerceModel.TBL_FORMA_PAGO" />
+          <EntitySet Name="TBL_IMPUESTOS" EntityType="EcommerceModel.TBL_IMPUESTOS" />
+          <EntitySet Name="TBL_PAGOS" EntityType="EcommerceModel.TBL_PAGOS" />
+          <EntitySet Name="TBL_PEDIDO" EntityType="EcommerceModel.TBL_PEDIDO" />
+          <EntitySet Name="TBL_PRODUCTO" EntityType="EcommerceModel.TBL_PRODUCTO" />
+          <EntitySet Name="TBL_ROL" EntityType="EcommerceModel.TBL_ROL" />
+          <EntitySet Name="TBL_USUARIO" EntityType="EcommerceModel.TBL_USUARIO" />
+          <AssociationSet Name="FK_TBL_PROD_RELATIONS_TBL_CATE" Association="EcommerceModel.FK_TBL_PROD_RELATIONS_TBL_CATE">
+            <End Role="TBL_CATEGORIA" EntitySet="TBL_CATEGORIA" />
+            <End Role="TBL_PRODUCTO" EntitySet="TBL_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_DIRE_RELATIONS_TBL_CLIE" Association="EcommerceModel.FK_TBL_DIRE_RELATIONS_TBL_CLIE">
+            <End Role="TBL_CLIENTE" EntitySet="TBL_CLIENTE" />
+            <End Role="TBL_DIRECCION" EntitySet="TBL_DIRECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_PEDI_RELATIONS_TBL_CLIE" Association="EcommerceModel.FK_TBL_PEDI_RELATIONS_TBL_CLIE">
+            <End Role="TBL_CLIENTE" EntitySet="TBL_CLIENTE" />
+            <End Role="TBL_PEDIDO" EntitySet="TBL_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_DETA_RELATIONS_TBL_DETA" Association="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_DETA">
+            <End Role="TBL_DETALLE_PEDIDO" EntitySet="TBL_DETALLE_PEDIDO" />
+            <End Role="TBL_DETALLE_IMPUESTOS" EntitySet="TBL_DETALLE_IMPUESTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_DETA_RELATIONS_TBL_IMPU" Association="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_IMPU">
+            <End Role="TBL_IMPUESTOS" EntitySet="TBL_IMPUESTOS" />
+            <End Role="TBL_DETALLE_IMPUESTOS" EntitySet="TBL_DETALLE_IMPUESTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_DETA_RELATIONS_TBL_PEDI" Association="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_PEDI">
+            <End Role="TBL_PEDIDO" EntitySet="TBL_PEDIDO" />
+            <End Role="TBL_DETALLE_PEDIDO" EntitySet="TBL_DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_DETA_RELATIONS_TBL_PROD" Association="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_PROD">
+            <End Role="TBL_PRODUCTO" EntitySet="TBL_PRODUCTO" />
+            <End Role="TBL_DETALLE_PEDIDO" EntitySet="TBL_DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_PAGO_RELATIONS_TBL_FORM" Association="EcommerceModel.FK_TBL_PAGO_RELATIONS_TBL_FORM">
+            <End Role="TBL_FORMA_PAGO" EntitySet="TBL_FORMA_PAGO" />
+            <End Role="TBL_PAGOS" EntitySet="TBL_PAGOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_PAGO_RELATIONS_TBL_PEDI" Association="EcommerceModel.FK_TBL_PAGO_RELATIONS_TBL_PEDI">
+            <End Role="TBL_PEDIDO" EntitySet="TBL_PEDIDO" />
+            <End Role="TBL_PAGOS" EntitySet="TBL_PAGOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_USUA_RELATIONS_TBL_ROL" Association="EcommerceModel.FK_TBL_USUA_RELATIONS_TBL_ROL">
+            <End Role="TBL_ROL" EntitySet="TBL_ROL" />
+            <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="TBL_CATEGORIA">
           <Key>
-            <PropertyRef Name="CATP_ID" />
+            <PropertyRef Name="CAT_ID" />
           </Key>
-          <Property Name="CATP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CATP_NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CATP_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CATP_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="CAPT_LOG" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CAPT_ADD" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="TBL_PRODUCTO" Relationship="Self.FK_TBL_PROD_RELATIONS_TBL_CATE" FromRole="TBL_CATEGORIA" ToRole="TBL_PRODUCTO" />
+          <Property Name="CAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAT_NOMBRE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CAT_DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CAT_ESTADO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CAT_FECHA_CREACION" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TBL_PRODUCTO" Relationship="EcommerceModel.FK_TBL_PROD_RELATIONS_TBL_CATE" FromRole="TBL_CATEGORIA" ToRole="TBL_PRODUCTO" />
         </EntityType>
         <EntityType Name="TBL_CLIENTE">
           <Key>
             <PropertyRef Name="CLI_ID" />
-            <PropertyRef Name="CLI_DNI" />
+            <PropertyRef Name="CLI_IDENTIFICACION" />
           </Key>
-          <Property Name="CLI_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CLI_DNI" Type="Int32" Nullable="false" />
-          <Property Name="CLI_TIPO_DNI" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="CLI_APELLIDOS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CLI_NOMBRES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CLI_GENERO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="CLI_FECHANACIMIENTO" Type="DateTime" Precision="3" />
-          <Property Name="CLI_TELEFONO" Type="Decimal" Precision="10" Scale="0" />
-          <Property Name="CLI_CELULAR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLI_DIRECCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_TELEFONO" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_TIPO_IDENTIFICACION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_IDENTIFICACION" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_FECHA_CREACION" Type="DateTime" Precision="3" />
+          <Property Name="CLI_ESTADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_APELLIDOS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_NOMBRES" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_GENERO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_FECHA_NACIMIENTO" Type="DateTime" Precision="3" />
+          <Property Name="CLI_CELULAR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="CLI_CORREO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="CLI_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="CLI_ADD" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TBL_DIRECCIONES" Relationship="Self.FK_TBL_DIRE_RELATIONS_TBL_CLIE" FromRole="TBL_CLIENTE" ToRole="TBL_DIRECCIONES" />
-          <NavigationProperty Name="TBL_PEDIDO" Relationship="Self.FK_TBL_PEDI_RELATIONS_TBL_CLIE" FromRole="TBL_CLIENTE" ToRole="TBL_PEDIDO" />
+          <NavigationProperty Name="TBL_DIRECCION" Relationship="EcommerceModel.FK_TBL_DIRE_RELATIONS_TBL_CLIE" FromRole="TBL_CLIENTE" ToRole="TBL_DIRECCION" />
+          <NavigationProperty Name="TBL_PEDIDO" Relationship="EcommerceModel.FK_TBL_PEDI_RELATIONS_TBL_CLIE" FromRole="TBL_CLIENTE" ToRole="TBL_PEDIDO" />
         </EntityType>
-        <EntityType Name="TBL_DETALLE_PEDIDO">
-          <Key>
-            <PropertyRef Name="DEP_CODIGO" />
-          </Key>
-          <Property Name="DEP_CODIGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PED_ID" Type="Int32" />
-          <Property Name="PED_FECHA" Type="DateTime" Precision="3" />
-          <Property Name="PRO_ID" Type="Int32" />
-          <Property Name="DEP_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DEP_CANTIDAD" Type="Int32" />
-          <Property Name="DEP_PRECIO_UNITARIO" Type="Decimal" Precision="8" Scale="4" />
-          <Property Name="DEP_PRECIOTOTAL" Type="Decimal" Precision="8" Scale="4" />
-          <Property Name="DEP_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="TBL_DETALLEIMPUESTOS" Relationship="Self.FK_TBL_DETA_RELATIONS_TBL_DETA" FromRole="TBL_DETALLE_PEDIDO" ToRole="TBL_DETALLEIMPUESTOS" />
-          <NavigationProperty Name="TBL_PEDIDO" Relationship="Self.FK_TBL_DETA_RELATIONS_TBL_PEDI" FromRole="TBL_DETALLE_PEDIDO" ToRole="TBL_PEDIDO" />
-          <NavigationProperty Name="TBL_PRODUCTO" Relationship="Self.FK_TBL_DETA_RELATIONS_TBL_PROD" FromRole="TBL_DETALLE_PEDIDO" ToRole="TBL_PRODUCTO" />
-        </EntityType>
-        <EntityType Name="TBL_DETALLEIMPUESTOS">
+        <EntityType Name="TBL_DETALLE_IMPUESTOS">
           <Key>
             <PropertyRef Name="DIM_ID" />
           </Key>
           <Property Name="DIM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DEP_CODIGO" Type="Int32" />
           <Property Name="IMP_ID" Type="Int32" />
+          <Property Name="DEP_ID" Type="Int32" />
           <Property Name="DIM_VALOR" Type="Decimal" Precision="8" Scale="4" />
-          <Property Name="DIM_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="TBL_DETALLE_PEDIDO" Relationship="Self.FK_TBL_DETA_RELATIONS_TBL_DETA" FromRole="TBL_DETALLEIMPUESTOS" ToRole="TBL_DETALLE_PEDIDO" />
-          <NavigationProperty Name="TBL_IMPUESTOS" Relationship="Self.FK_TBL_DETA_RELATIONS_TBL_IMPU" FromRole="TBL_DETALLEIMPUESTOS" ToRole="TBL_IMPUESTOS" />
+          <Property Name="DIM_ESTADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_DETALLE_PEDIDO" Relationship="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_DETA" FromRole="TBL_DETALLE_IMPUESTOS" ToRole="TBL_DETALLE_PEDIDO" />
+          <NavigationProperty Name="TBL_IMPUESTOS" Relationship="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_IMPU" FromRole="TBL_DETALLE_IMPUESTOS" ToRole="TBL_IMPUESTOS" />
         </EntityType>
-        <EntityType Name="TBL_DIRECCIONES">
+        <EntityType Name="TBL_DETALLE_PEDIDO">
+          <Key>
+            <PropertyRef Name="DEP_ID" />
+          </Key>
+          <Property Name="DEP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PED_ID" Type="Int32" />
+          <Property Name="PED_FECHA" Type="DateTime" Precision="3" />
+          <Property Name="PRO_ID" Type="Int32" />
+          <Property Name="DEP_CANTIDAD" Type="Int32" />
+          <Property Name="DEP_DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DEP_PRECIOUNITARIO" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="DEP_PRECIOTOTAL" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="DEP_ESTADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_DETALLE_IMPUESTOS" Relationship="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_DETA" FromRole="TBL_DETALLE_PEDIDO" ToRole="TBL_DETALLE_IMPUESTOS" />
+          <NavigationProperty Name="TBL_PEDIDO" Relationship="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_PEDI" FromRole="TBL_DETALLE_PEDIDO" ToRole="TBL_PEDIDO" />
+          <NavigationProperty Name="TBL_PRODUCTO" Relationship="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_PROD" FromRole="TBL_DETALLE_PEDIDO" ToRole="TBL_PRODUCTO" />
+        </EntityType>
+        <EntityType Name="TBL_DIRECCION">
           <Key>
             <PropertyRef Name="DIR_ID" />
           </Key>
           <Property Name="DIR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CLI_ID" Type="Int64" />
-          <Property Name="CLI_DNI" Type="Int32" />
-          <Property Name="DIR_PRIMEARIA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DIR_SECUNDARIA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DIR_NUMERACION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DIR_REFERENCIA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DIR_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="DIR_ADD" Type="DateTime" Precision="3" />
-          <Property Name="DIR_CODIGOPOSTAL" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TBL_CLIENTE" Relationship="Self.FK_TBL_DIRE_RELATIONS_TBL_CLIE" FromRole="TBL_DIRECCIONES" ToRole="TBL_CLIENTE" />
+          <Property Name="CLI_ID" Type="Int32" />
+          <Property Name="CLI_IDENTIFICACION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DIR_PRINCIPAL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DIR_SECUNDARIA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DIR_NUMERACION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DIR_REFERENCIA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DIR_ESTADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DIR_CODIGO_POSTAL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DIR_FECHA_CREACION" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TBL_CLIENTE" Relationship="EcommerceModel.FK_TBL_DIRE_RELATIONS_TBL_CLIE" FromRole="TBL_DIRECCION" ToRole="TBL_CLIENTE" />
         </EntityType>
         <EntityType Name="TBL_FORMA_PAGO">
           <Key>
             <PropertyRef Name="FPA_ID" />
           </Key>
           <Property Name="FPA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FPA_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FPA_DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="FPA_CODIGOSRI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="FPA_ADD" Type="DateTime" Precision="3" />
-          <Property Name="FPA_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="TBL_PAGO" Relationship="Self.FK_TBL_PAGO_RELATIONS_TBL_FORM" FromRole="TBL_FORMA_PAGO" ToRole="TBL_PAGO" />
+          <Property Name="FPA_ESTADO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FPA_FECHA_CREACION" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TBL_PAGOS" Relationship="EcommerceModel.FK_TBL_PAGO_RELATIONS_TBL_FORM" FromRole="TBL_FORMA_PAGO" ToRole="TBL_PAGOS" />
         </EntityType>
         <EntityType Name="TBL_IMPUESTOS">
           <Key>
             <PropertyRef Name="IMP_ID" />
           </Key>
           <Property Name="IMP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IMP_CODIGOSRI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="IMP_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IMP_PORCENTAJE" Type="Decimal" Precision="8" Scale="4" />
-          <Property Name="IMP_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="IMP_ADD" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="TBL_DETALLEIMPUESTOS" Relationship="Self.FK_TBL_DETA_RELATIONS_TBL_IMPU" FromRole="TBL_IMPUESTOS" ToRole="TBL_DETALLEIMPUESTOS" />
+          <Property Name="IMP_CODIGO_SRI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IMP_DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IMP_PORCENTAJE" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="IMP_ESTADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IMP_FECHA_CREACION" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TBL_DETALLE_IMPUESTOS" Relationship="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_IMPU" FromRole="TBL_IMPUESTOS" ToRole="TBL_DETALLE_IMPUESTOS" />
         </EntityType>
-        <EntityType Name="TBL_PAGO">
+        <EntityType Name="TBL_PAGOS">
           <Key>
             <PropertyRef Name="PAG_ID" />
           </Key>
@@ -461,11 +514,11 @@
           <Property Name="PED_FECHA" Type="DateTime" Precision="3" />
           <Property Name="FPA_ID" Type="Int32" />
           <Property Name="PAG_FECHA" Type="DateTime" Precision="3" />
-          <Property Name="PAG_VALOR" Type="Decimal" Precision="8" Scale="4" />
-          <Property Name="PAG_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="PAG_ADD" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="TBL_FORMA_PAGO" Relationship="Self.FK_TBL_PAGO_RELATIONS_TBL_FORM" FromRole="TBL_PAGO" ToRole="TBL_FORMA_PAGO" />
-          <NavigationProperty Name="TBL_PEDIDO" Relationship="Self.FK_TBL_PAGO_RELATIONS_TBL_PEDI" FromRole="TBL_PAGO" ToRole="TBL_PEDIDO" />
+          <Property Name="PAG_VALOR" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="PAG_ESTADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PAG_FECHA_CREACION" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TBL_FORMA_PAGO" Relationship="EcommerceModel.FK_TBL_PAGO_RELATIONS_TBL_FORM" FromRole="TBL_PAGOS" ToRole="TBL_FORMA_PAGO" />
+          <NavigationProperty Name="TBL_PEDIDO" Relationship="EcommerceModel.FK_TBL_PAGO_RELATIONS_TBL_PEDI" FromRole="TBL_PAGOS" ToRole="TBL_PEDIDO" />
         </EntityType>
         <EntityType Name="TBL_PEDIDO">
           <Key>
@@ -473,50 +526,50 @@
             <PropertyRef Name="PED_FECHA" />
           </Key>
           <Property Name="PED_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PED_FECHA" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CLI_ID" Type="Int64" />
-          <Property Name="CLI_DNI" Type="Int32" />
-          <Property Name="PED_NUMERO" Type="Int32" />
-          <Property Name="PED_CLIENTE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="PED_DIRECCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="PED_TELEFONO" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Name="PED_DNI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="PED_TOTAL" Type="Decimal" Precision="8" Scale="4" />
           <Property Name="PED_SUBTOTAL" Type="Decimal" Precision="8" Scale="4" />
-          <Property Name="PED_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="PED_ADD" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="TBL_CLIENTE" Relationship="Self.FK_TBL_PEDI_RELATIONS_TBL_CLIE" FromRole="TBL_PEDIDO" ToRole="TBL_CLIENTE" />
-          <NavigationProperty Name="TBL_DETALLE_PEDIDO" Relationship="Self.FK_TBL_DETA_RELATIONS_TBL_PEDI" FromRole="TBL_PEDIDO" ToRole="TBL_DETALLE_PEDIDO" />
-          <NavigationProperty Name="TBL_PAGO" Relationship="Self.FK_TBL_PAGO_RELATIONS_TBL_PEDI" FromRole="TBL_PEDIDO" ToRole="TBL_PAGO" />
+          <Property Name="PED_TOTAL" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="PED_FECHA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CLI_ID" Type="Int32" />
+          <Property Name="CLI_IDENTIFICACION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PED_NUMERO" Type="Int32" />
+          <Property Name="PED_IDENTIFICACION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PED_CLIENTE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PED_DIRECCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PED_TELEFONO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PED_ESTADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PED_FECHA_CREACION" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TBL_CLIENTE" Relationship="EcommerceModel.FK_TBL_PEDI_RELATIONS_TBL_CLIE" FromRole="TBL_PEDIDO" ToRole="TBL_CLIENTE" />
+          <NavigationProperty Name="TBL_DETALLE_PEDIDO" Relationship="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_PEDI" FromRole="TBL_PEDIDO" ToRole="TBL_DETALLE_PEDIDO" />
+          <NavigationProperty Name="TBL_PAGOS" Relationship="EcommerceModel.FK_TBL_PAGO_RELATIONS_TBL_PEDI" FromRole="TBL_PEDIDO" ToRole="TBL_PAGOS" />
         </EntityType>
         <EntityType Name="TBL_PRODUCTO">
           <Key>
             <PropertyRef Name="PRO_ID" />
           </Key>
-          <Property Name="PRO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CATP_ID" Type="Int32" />
-          <Property Name="PRO_CODIGO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PRO_NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PRO_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PRO_PRECIOCOMPRA" Type="Decimal" Precision="8" Scale="4" />
-          <Property Name="PRO_PRECIO_VENTA" Type="Decimal" Precision="8" Scale="4" />
-          <Property Name="PRO_IMAGEN" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="PRO_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="PRO_STOCKMAX" Type="Int32" />
-          <Property Name="PRO_STOCKMIN" Type="Int32" />
-          <Property Name="PRO_ADD" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="TBL_CATEGORIA" Relationship="Self.FK_TBL_PROD_RELATIONS_TBL_CATE" FromRole="TBL_PRODUCTO" ToRole="TBL_CATEGORIA" />
-          <NavigationProperty Name="TBL_DETALLE_PEDIDO" Relationship="Self.FK_TBL_DETA_RELATIONS_TBL_PROD" FromRole="TBL_PRODUCTO" ToRole="TBL_DETALLE_PEDIDO" />
+          <Property Name="PRO_ID" Type="Int32" Nullable="false" />
+          <Property Name="CAT_ID" Type="Int32" />
+          <Property Name="PRO_CODIGO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_NOMBRE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_PRECIO_COMPRA" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="PRO_PRECIO_VENTA" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="PRO_STOCK_MINIMO" Type="Int32" />
+          <Property Name="PRO_STOCK_MAXIMO" Type="Int32" />
+          <Property Name="PRO_FECHA_CREACION" Type="DateTime" Precision="3" />
+          <Property Name="PRO_ESTADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_IMAGEN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_CATEGORIA" Relationship="EcommerceModel.FK_TBL_PROD_RELATIONS_TBL_CATE" FromRole="TBL_PRODUCTO" ToRole="TBL_CATEGORIA" />
+          <NavigationProperty Name="TBL_DETALLE_PEDIDO" Relationship="EcommerceModel.FK_TBL_DETA_RELATIONS_TBL_PROD" FromRole="TBL_PRODUCTO" ToRole="TBL_DETALLE_PEDIDO" />
         </EntityType>
         <EntityType Name="TBL_ROL">
           <Key>
             <PropertyRef Name="ROL_ID" />
           </Key>
           <Property Name="ROL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ROL_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ROL_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="ROL_ADD" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="TBL_USUARIO" Relationship="Self.FK_TBL_USUA_RELATIONS_TBL_ROL" FromRole="TBL_ROL" ToRole="TBL_USUARIO" />
+          <Property Name="ROL_DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ROL_ESTADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ROL_FECHA_CREACION" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TBL_USUARIO" Relationship="EcommerceModel.FK_TBL_USUA_RELATIONS_TBL_ROL" FromRole="TBL_ROL" ToRole="TBL_USUARIO" />
         </EntityType>
         <EntityType Name="TBL_USUARIO">
           <Key>
@@ -524,69 +577,81 @@
           </Key>
           <Property Name="USU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ROL_ID" Type="Int32" />
-          <Property Name="USU_CORREO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="USU_PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="USU_NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="USU_APELLIDOS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="USU_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="USU_ADD" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="TBL_ROL" Relationship="Self.FK_TBL_USUA_RELATIONS_TBL_ROL" FromRole="TBL_USUARIO" ToRole="TBL_ROL" />
+          <Property Name="USU_CORREO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="USU_CONTRASENA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="USU_NOMBRES" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="USU_APELLIDOS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="USU_ESTADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="USU_FECHA_CREACION" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TBL_ROL" Relationship="EcommerceModel.FK_TBL_USUA_RELATIONS_TBL_ROL" FromRole="TBL_USUARIO" ToRole="TBL_ROL" />
         </EntityType>
         <Association Name="FK_TBL_PROD_RELATIONS_TBL_CATE">
-          <End Role="TBL_CATEGORIA" Type="Self.TBL_CATEGORIA" Multiplicity="0..1" />
-          <End Role="TBL_PRODUCTO" Type="Self.TBL_PRODUCTO" Multiplicity="*" />
+          <End Type="EcommerceModel.TBL_CATEGORIA" Role="TBL_CATEGORIA" Multiplicity="0..1" />
+          <End Type="EcommerceModel.TBL_PRODUCTO" Role="TBL_PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_CATEGORIA">
-              <PropertyRef Name="CATP_ID" />
+              <PropertyRef Name="CAT_ID" />
             </Principal>
             <Dependent Role="TBL_PRODUCTO">
-              <PropertyRef Name="CATP_ID" />
+              <PropertyRef Name="CAT_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_DIRE_RELATIONS_TBL_CLIE">
-          <End Role="TBL_CLIENTE" Type="Self.TBL_CLIENTE" Multiplicity="0..1" />
-          <End Role="TBL_DIRECCIONES" Type="Self.TBL_DIRECCIONES" Multiplicity="*" />
+          <End Type="EcommerceModel.TBL_CLIENTE" Role="TBL_CLIENTE" Multiplicity="0..1" />
+          <End Type="EcommerceModel.TBL_DIRECCION" Role="TBL_DIRECCION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_CLIENTE">
               <PropertyRef Name="CLI_ID" />
-              <PropertyRef Name="CLI_DNI" />
+              <PropertyRef Name="CLI_IDENTIFICACION" />
             </Principal>
-            <Dependent Role="TBL_DIRECCIONES">
+            <Dependent Role="TBL_DIRECCION">
               <PropertyRef Name="CLI_ID" />
-              <PropertyRef Name="CLI_DNI" />
+              <PropertyRef Name="CLI_IDENTIFICACION" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_PEDI_RELATIONS_TBL_CLIE">
-          <End Role="TBL_CLIENTE" Type="Self.TBL_CLIENTE" Multiplicity="0..1" />
-          <End Role="TBL_PEDIDO" Type="Self.TBL_PEDIDO" Multiplicity="*" />
+          <End Type="EcommerceModel.TBL_CLIENTE" Role="TBL_CLIENTE" Multiplicity="0..1" />
+          <End Type="EcommerceModel.TBL_PEDIDO" Role="TBL_PEDIDO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_CLIENTE">
               <PropertyRef Name="CLI_ID" />
-              <PropertyRef Name="CLI_DNI" />
+              <PropertyRef Name="CLI_IDENTIFICACION" />
             </Principal>
             <Dependent Role="TBL_PEDIDO">
               <PropertyRef Name="CLI_ID" />
-              <PropertyRef Name="CLI_DNI" />
+              <PropertyRef Name="CLI_IDENTIFICACION" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_DETA_RELATIONS_TBL_DETA">
-          <End Role="TBL_DETALLE_PEDIDO" Type="Self.TBL_DETALLE_PEDIDO" Multiplicity="0..1" />
-          <End Role="TBL_DETALLEIMPUESTOS" Type="Self.TBL_DETALLEIMPUESTOS" Multiplicity="*" />
+          <End Type="EcommerceModel.TBL_DETALLE_PEDIDO" Role="TBL_DETALLE_PEDIDO" Multiplicity="0..1" />
+          <End Type="EcommerceModel.TBL_DETALLE_IMPUESTOS" Role="TBL_DETALLE_IMPUESTOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_DETALLE_PEDIDO">
-              <PropertyRef Name="DEP_CODIGO" />
+              <PropertyRef Name="DEP_ID" />
             </Principal>
-            <Dependent Role="TBL_DETALLEIMPUESTOS">
-              <PropertyRef Name="DEP_CODIGO" />
+            <Dependent Role="TBL_DETALLE_IMPUESTOS">
+              <PropertyRef Name="DEP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_DETA_RELATIONS_TBL_IMPU">
+          <End Type="EcommerceModel.TBL_IMPUESTOS" Role="TBL_IMPUESTOS" Multiplicity="0..1" />
+          <End Type="EcommerceModel.TBL_DETALLE_IMPUESTOS" Role="TBL_DETALLE_IMPUESTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_IMPUESTOS">
+              <PropertyRef Name="IMP_ID" />
+            </Principal>
+            <Dependent Role="TBL_DETALLE_IMPUESTOS">
+              <PropertyRef Name="IMP_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_DETA_RELATIONS_TBL_PEDI">
-          <End Role="TBL_PEDIDO" Type="Self.TBL_PEDIDO" Multiplicity="0..1" />
-          <End Role="TBL_DETALLE_PEDIDO" Type="Self.TBL_DETALLE_PEDIDO" Multiplicity="*" />
+          <End Type="EcommerceModel.TBL_PEDIDO" Role="TBL_PEDIDO" Multiplicity="0..1" />
+          <End Type="EcommerceModel.TBL_DETALLE_PEDIDO" Role="TBL_DETALLE_PEDIDO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_PEDIDO">
               <PropertyRef Name="PED_ID" />
@@ -599,8 +664,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_DETA_RELATIONS_TBL_PROD">
-          <End Role="TBL_PRODUCTO" Type="Self.TBL_PRODUCTO" Multiplicity="0..1" />
-          <End Role="TBL_DETALLE_PEDIDO" Type="Self.TBL_DETALLE_PEDIDO" Multiplicity="*" />
+          <End Type="EcommerceModel.TBL_PRODUCTO" Role="TBL_PRODUCTO" Multiplicity="0..1" />
+          <End Type="EcommerceModel.TBL_DETALLE_PEDIDO" Role="TBL_DETALLE_PEDIDO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_PRODUCTO">
               <PropertyRef Name="PRO_ID" />
@@ -610,47 +675,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_DETA_RELATIONS_TBL_IMPU">
-          <End Role="TBL_IMPUESTOS" Type="Self.TBL_IMPUESTOS" Multiplicity="0..1" />
-          <End Role="TBL_DETALLEIMPUESTOS" Type="Self.TBL_DETALLEIMPUESTOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_IMPUESTOS">
-              <PropertyRef Name="IMP_ID" />
-            </Principal>
-            <Dependent Role="TBL_DETALLEIMPUESTOS">
-              <PropertyRef Name="IMP_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TBL_PAGO_RELATIONS_TBL_FORM">
-          <End Role="TBL_FORMA_PAGO" Type="Self.TBL_FORMA_PAGO" Multiplicity="0..1" />
-          <End Role="TBL_PAGO" Type="Self.TBL_PAGO" Multiplicity="*" />
+          <End Type="EcommerceModel.TBL_FORMA_PAGO" Role="TBL_FORMA_PAGO" Multiplicity="0..1" />
+          <End Type="EcommerceModel.TBL_PAGOS" Role="TBL_PAGOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_FORMA_PAGO">
               <PropertyRef Name="FPA_ID" />
             </Principal>
-            <Dependent Role="TBL_PAGO">
+            <Dependent Role="TBL_PAGOS">
               <PropertyRef Name="FPA_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_PAGO_RELATIONS_TBL_PEDI">
-          <End Role="TBL_PEDIDO" Type="Self.TBL_PEDIDO" Multiplicity="0..1" />
-          <End Role="TBL_PAGO" Type="Self.TBL_PAGO" Multiplicity="*" />
+          <End Type="EcommerceModel.TBL_PEDIDO" Role="TBL_PEDIDO" Multiplicity="0..1" />
+          <End Type="EcommerceModel.TBL_PAGOS" Role="TBL_PAGOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_PEDIDO">
               <PropertyRef Name="PED_ID" />
               <PropertyRef Name="PED_FECHA" />
             </Principal>
-            <Dependent Role="TBL_PAGO">
+            <Dependent Role="TBL_PAGOS">
               <PropertyRef Name="PED_ID" />
               <PropertyRef Name="PED_FECHA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_USUA_RELATIONS_TBL_ROL">
-          <End Role="TBL_ROL" Type="Self.TBL_ROL" Multiplicity="0..1" />
-          <End Role="TBL_USUARIO" Type="Self.TBL_USUARIO" Multiplicity="*" />
+          <End Type="EcommerceModel.TBL_ROL" Role="TBL_ROL" Multiplicity="0..1" />
+          <End Type="EcommerceModel.TBL_USUARIO" Role="TBL_USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_ROL">
               <PropertyRef Name="ROL_ID" />
@@ -660,233 +713,179 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BDD_ECOMMERCEEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="TBL_CATEGORIA" EntityType="Self.TBL_CATEGORIA" />
-          <EntitySet Name="TBL_CLIENTE" EntityType="Self.TBL_CLIENTE" />
-          <EntitySet Name="TBL_DETALLE_PEDIDO" EntityType="Self.TBL_DETALLE_PEDIDO" />
-          <EntitySet Name="TBL_DETALLEIMPUESTOS" EntityType="Self.TBL_DETALLEIMPUESTOS" />
-          <EntitySet Name="TBL_DIRECCIONES" EntityType="Self.TBL_DIRECCIONES" />
-          <EntitySet Name="TBL_FORMA_PAGO" EntityType="Self.TBL_FORMA_PAGO" />
-          <EntitySet Name="TBL_IMPUESTOS" EntityType="Self.TBL_IMPUESTOS" />
-          <EntitySet Name="TBL_PAGO" EntityType="Self.TBL_PAGO" />
-          <EntitySet Name="TBL_PEDIDO" EntityType="Self.TBL_PEDIDO" />
-          <EntitySet Name="TBL_PRODUCTO" EntityType="Self.TBL_PRODUCTO" />
-          <EntitySet Name="TBL_ROL" EntityType="Self.TBL_ROL" />
-          <EntitySet Name="TBL_USUARIO" EntityType="Self.TBL_USUARIO" />
-          <AssociationSet Name="FK_TBL_PROD_RELATIONS_TBL_CATE" Association="Self.FK_TBL_PROD_RELATIONS_TBL_CATE">
-            <End Role="TBL_CATEGORIA" EntitySet="TBL_CATEGORIA" />
-            <End Role="TBL_PRODUCTO" EntitySet="TBL_PRODUCTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_DIRE_RELATIONS_TBL_CLIE" Association="Self.FK_TBL_DIRE_RELATIONS_TBL_CLIE">
-            <End Role="TBL_CLIENTE" EntitySet="TBL_CLIENTE" />
-            <End Role="TBL_DIRECCIONES" EntitySet="TBL_DIRECCIONES" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_PEDI_RELATIONS_TBL_CLIE" Association="Self.FK_TBL_PEDI_RELATIONS_TBL_CLIE">
-            <End Role="TBL_CLIENTE" EntitySet="TBL_CLIENTE" />
-            <End Role="TBL_PEDIDO" EntitySet="TBL_PEDIDO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_DETA_RELATIONS_TBL_DETA" Association="Self.FK_TBL_DETA_RELATIONS_TBL_DETA">
-            <End Role="TBL_DETALLE_PEDIDO" EntitySet="TBL_DETALLE_PEDIDO" />
-            <End Role="TBL_DETALLEIMPUESTOS" EntitySet="TBL_DETALLEIMPUESTOS" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_DETA_RELATIONS_TBL_PEDI" Association="Self.FK_TBL_DETA_RELATIONS_TBL_PEDI">
-            <End Role="TBL_PEDIDO" EntitySet="TBL_PEDIDO" />
-            <End Role="TBL_DETALLE_PEDIDO" EntitySet="TBL_DETALLE_PEDIDO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_DETA_RELATIONS_TBL_PROD" Association="Self.FK_TBL_DETA_RELATIONS_TBL_PROD">
-            <End Role="TBL_PRODUCTO" EntitySet="TBL_PRODUCTO" />
-            <End Role="TBL_DETALLE_PEDIDO" EntitySet="TBL_DETALLE_PEDIDO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_DETA_RELATIONS_TBL_IMPU" Association="Self.FK_TBL_DETA_RELATIONS_TBL_IMPU">
-            <End Role="TBL_IMPUESTOS" EntitySet="TBL_IMPUESTOS" />
-            <End Role="TBL_DETALLEIMPUESTOS" EntitySet="TBL_DETALLEIMPUESTOS" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_PAGO_RELATIONS_TBL_FORM" Association="Self.FK_TBL_PAGO_RELATIONS_TBL_FORM">
-            <End Role="TBL_FORMA_PAGO" EntitySet="TBL_FORMA_PAGO" />
-            <End Role="TBL_PAGO" EntitySet="TBL_PAGO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_PAGO_RELATIONS_TBL_PEDI" Association="Self.FK_TBL_PAGO_RELATIONS_TBL_PEDI">
-            <End Role="TBL_PEDIDO" EntitySet="TBL_PEDIDO" />
-            <End Role="TBL_PAGO" EntitySet="TBL_PAGO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_USUA_RELATIONS_TBL_ROL" Association="Self.FK_TBL_USUA_RELATIONS_TBL_ROL">
-            <End Role="TBL_ROL" EntitySet="TBL_ROL" />
-            <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BDD_ECOMMERCEModelStoreContainer" CdmEntityContainer="BDD_ECOMMERCEEntities">
+        <EntityContainerMapping StorageEntityContainer="EcommerceModelStoreContainer" CdmEntityContainer="EcommerceEntities">
           <EntitySetMapping Name="TBL_CATEGORIA">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_CATEGORIA">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_CATEGORIA">
               <MappingFragment StoreEntitySet="TBL_CATEGORIA">
-                <ScalarProperty Name="CATP_ID" ColumnName="CATP_ID" />
-                <ScalarProperty Name="CATP_NOMBRE" ColumnName="CATP_NOMBRE" />
-                <ScalarProperty Name="CATP_DESCRIPCION" ColumnName="CATP_DESCRIPCION" />
-                <ScalarProperty Name="CATP_ESTADO" ColumnName="CATP_ESTADO" />
-                <ScalarProperty Name="CAPT_LOG" ColumnName="CAPT_LOG" />
-                <ScalarProperty Name="CAPT_ADD" ColumnName="CAPT_ADD" />
+                <ScalarProperty Name="CAT_FECHA_CREACION" ColumnName="CAT_FECHA_CREACION" />
+                <ScalarProperty Name="CAT_ESTADO" ColumnName="CAT_ESTADO" />
+                <ScalarProperty Name="CAT_DESCRIPCION" ColumnName="CAT_DESCRIPCION" />
+                <ScalarProperty Name="CAT_NOMBRE" ColumnName="CAT_NOMBRE" />
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBL_CLIENTE">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_CLIENTE">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_CLIENTE">
               <MappingFragment StoreEntitySet="TBL_CLIENTE">
-                <ScalarProperty Name="CLI_ID" ColumnName="CLI_ID" />
-                <ScalarProperty Name="CLI_DNI" ColumnName="CLI_DNI" />
-                <ScalarProperty Name="CLI_TIPO_DNI" ColumnName="CLI_TIPO_DNI" />
-                <ScalarProperty Name="CLI_APELLIDOS" ColumnName="CLI_APELLIDOS" />
-                <ScalarProperty Name="CLI_NOMBRES" ColumnName="CLI_NOMBRES" />
-                <ScalarProperty Name="CLI_GENERO" ColumnName="CLI_GENERO" />
-                <ScalarProperty Name="CLI_FECHANACIMIENTO" ColumnName="CLI_FECHANACIMIENTO" />
-                <ScalarProperty Name="CLI_TELEFONO" ColumnName="CLI_TELEFONO" />
-                <ScalarProperty Name="CLI_CELULAR" ColumnName="CLI_CELULAR" />
                 <ScalarProperty Name="CLI_CORREO" ColumnName="CLI_CORREO" />
+                <ScalarProperty Name="CLI_CELULAR" ColumnName="CLI_CELULAR" />
+                <ScalarProperty Name="CLI_FECHA_NACIMIENTO" ColumnName="CLI_FECHA_NACIMIENTO" />
+                <ScalarProperty Name="CLI_GENERO" ColumnName="CLI_GENERO" />
+                <ScalarProperty Name="CLI_NOMBRES" ColumnName="CLI_NOMBRES" />
+                <ScalarProperty Name="CLI_APELLIDOS" ColumnName="CLI_APELLIDOS" />
                 <ScalarProperty Name="CLI_ESTADO" ColumnName="CLI_ESTADO" />
-                <ScalarProperty Name="CLI_ADD" ColumnName="CLI_ADD" />
+                <ScalarProperty Name="CLI_FECHA_CREACION" ColumnName="CLI_FECHA_CREACION" />
+                <ScalarProperty Name="CLI_IDENTIFICACION" ColumnName="CLI_IDENTIFICACION" />
+                <ScalarProperty Name="CLI_TIPO_IDENTIFICACION" ColumnName="CLI_TIPO_IDENTIFICACION" />
+                <ScalarProperty Name="CLI_TELEFONO" ColumnName="CLI_TELEFONO" />
+                <ScalarProperty Name="CLI_DIRECCION" ColumnName="CLI_DIRECCION" />
+                <ScalarProperty Name="CLI_ID" ColumnName="CLI_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DETALLE_IMPUESTOS">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_DETALLE_IMPUESTOS">
+              <MappingFragment StoreEntitySet="TBL_DETALLE_IMPUESTOS">
+                <ScalarProperty Name="DIM_ESTADO" ColumnName="DIM_ESTADO" />
+                <ScalarProperty Name="DIM_VALOR" ColumnName="DIM_VALOR" />
+                <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+                <ScalarProperty Name="IMP_ID" ColumnName="IMP_ID" />
+                <ScalarProperty Name="DIM_ID" ColumnName="DIM_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBL_DETALLE_PEDIDO">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_DETALLE_PEDIDO">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_DETALLE_PEDIDO">
               <MappingFragment StoreEntitySet="TBL_DETALLE_PEDIDO">
-                <ScalarProperty Name="DEP_CODIGO" ColumnName="DEP_CODIGO" />
-                <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
-                <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
-                <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+                <ScalarProperty Name="DEP_ESTADO" ColumnName="DEP_ESTADO" />
+                <ScalarProperty Name="DEP_PRECIOTOTAL" ColumnName="DEP_PRECIOTOTAL" />
+                <ScalarProperty Name="DEP_PRECIOUNITARIO" ColumnName="DEP_PRECIOUNITARIO" />
                 <ScalarProperty Name="DEP_DESCRIPCION" ColumnName="DEP_DESCRIPCION" />
                 <ScalarProperty Name="DEP_CANTIDAD" ColumnName="DEP_CANTIDAD" />
-                <ScalarProperty Name="DEP_PRECIO_UNITARIO" ColumnName="DEP_PRECIO_UNITARIO" />
-                <ScalarProperty Name="DEP_PRECIOTOTAL" ColumnName="DEP_PRECIOTOTAL" />
-                <ScalarProperty Name="DEP_ESTADO" ColumnName="DEP_ESTADO" />
+                <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+                <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
+                <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
+                <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBL_DETALLEIMPUESTOS">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_DETALLEIMPUESTOS">
-              <MappingFragment StoreEntitySet="TBL_DETALLEIMPUESTOS">
-                <ScalarProperty Name="DIM_ID" ColumnName="DIM_ID" />
-                <ScalarProperty Name="DEP_CODIGO" ColumnName="DEP_CODIGO" />
-                <ScalarProperty Name="IMP_ID" ColumnName="IMP_ID" />
-                <ScalarProperty Name="DIM_VALOR" ColumnName="DIM_VALOR" />
-                <ScalarProperty Name="DIM_ESTADO" ColumnName="DIM_ESTADO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TBL_DIRECCIONES">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_DIRECCIONES">
-              <MappingFragment StoreEntitySet="TBL_DIRECCIONES">
-                <ScalarProperty Name="DIR_ID" ColumnName="DIR_ID" />
-                <ScalarProperty Name="CLI_ID" ColumnName="CLI_ID" />
-                <ScalarProperty Name="CLI_DNI" ColumnName="CLI_DNI" />
-                <ScalarProperty Name="DIR_PRIMEARIA" ColumnName="DIR_PRIMEARIA" />
-                <ScalarProperty Name="DIR_SECUNDARIA" ColumnName="DIR_SECUNDARIA" />
-                <ScalarProperty Name="DIR_NUMERACION" ColumnName="DIR_NUMERACION" />
-                <ScalarProperty Name="DIR_REFERENCIA" ColumnName="DIR_REFERENCIA" />
+          <EntitySetMapping Name="TBL_DIRECCION">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_DIRECCION">
+              <MappingFragment StoreEntitySet="TBL_DIRECCION">
+                <ScalarProperty Name="DIR_FECHA_CREACION" ColumnName="DIR_FECHA_CREACION" />
+                <ScalarProperty Name="DIR_CODIGO_POSTAL" ColumnName="DIR_CODIGO_POSTAL" />
                 <ScalarProperty Name="DIR_ESTADO" ColumnName="DIR_ESTADO" />
-                <ScalarProperty Name="DIR_ADD" ColumnName="DIR_ADD" />
-                <ScalarProperty Name="DIR_CODIGOPOSTAL" ColumnName="DIR_CODIGOPOSTAL" />
+                <ScalarProperty Name="DIR_REFERENCIA" ColumnName="DIR_REFERENCIA" />
+                <ScalarProperty Name="DIR_NUMERACION" ColumnName="DIR_NUMERACION" />
+                <ScalarProperty Name="DIR_SECUNDARIA" ColumnName="DIR_SECUNDARIA" />
+                <ScalarProperty Name="DIR_PRINCIPAL" ColumnName="DIR_PRINCIPAL" />
+                <ScalarProperty Name="CLI_IDENTIFICACION" ColumnName="CLI_IDENTIFICACION" />
+                <ScalarProperty Name="CLI_ID" ColumnName="CLI_ID" />
+                <ScalarProperty Name="DIR_ID" ColumnName="DIR_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBL_FORMA_PAGO">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_FORMA_PAGO">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_FORMA_PAGO">
               <MappingFragment StoreEntitySet="TBL_FORMA_PAGO">
-                <ScalarProperty Name="FPA_ID" ColumnName="FPA_ID" />
-                <ScalarProperty Name="FPA_DESCRIPCION" ColumnName="FPA_DESCRIPCION" />
-                <ScalarProperty Name="FPA_CODIGOSRI" ColumnName="FPA_CODIGOSRI" />
-                <ScalarProperty Name="FPA_ADD" ColumnName="FPA_ADD" />
+                <ScalarProperty Name="FPA_FECHA_CREACION" ColumnName="FPA_FECHA_CREACION" />
                 <ScalarProperty Name="FPA_ESTADO" ColumnName="FPA_ESTADO" />
+                <ScalarProperty Name="FPA_CODIGOSRI" ColumnName="FPA_CODIGOSRI" />
+                <ScalarProperty Name="FPA_DESCRIPCION" ColumnName="FPA_DESCRIPCION" />
+                <ScalarProperty Name="FPA_ID" ColumnName="FPA_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBL_IMPUESTOS">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_IMPUESTOS">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_IMPUESTOS">
               <MappingFragment StoreEntitySet="TBL_IMPUESTOS">
-                <ScalarProperty Name="IMP_ID" ColumnName="IMP_ID" />
-                <ScalarProperty Name="IMP_CODIGOSRI" ColumnName="IMP_CODIGOSRI" />
-                <ScalarProperty Name="IMP_DESCRIPCION" ColumnName="IMP_DESCRIPCION" />
-                <ScalarProperty Name="IMP_PORCENTAJE" ColumnName="IMP_PORCENTAJE" />
+                <ScalarProperty Name="IMP_FECHA_CREACION" ColumnName="IMP_FECHA_CREACION" />
                 <ScalarProperty Name="IMP_ESTADO" ColumnName="IMP_ESTADO" />
-                <ScalarProperty Name="IMP_ADD" ColumnName="IMP_ADD" />
+                <ScalarProperty Name="IMP_PORCENTAJE" ColumnName="IMP_PORCENTAJE" />
+                <ScalarProperty Name="IMP_DESCRIPCION" ColumnName="IMP_DESCRIPCION" />
+                <ScalarProperty Name="IMP_CODIGO_SRI" ColumnName="IMP_CODIGO_SRI" />
+                <ScalarProperty Name="IMP_ID" ColumnName="IMP_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBL_PAGO">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_PAGO">
-              <MappingFragment StoreEntitySet="TBL_PAGO">
-                <ScalarProperty Name="PAG_ID" ColumnName="PAG_ID" />
-                <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
-                <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
-                <ScalarProperty Name="FPA_ID" ColumnName="FPA_ID" />
-                <ScalarProperty Name="PAG_FECHA" ColumnName="PAG_FECHA" />
-                <ScalarProperty Name="PAG_VALOR" ColumnName="PAG_VALOR" />
+          <EntitySetMapping Name="TBL_PAGOS">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_PAGOS">
+              <MappingFragment StoreEntitySet="TBL_PAGOS">
+                <ScalarProperty Name="PAG_FECHA_CREACION" ColumnName="PAG_FECHA_CREACION" />
                 <ScalarProperty Name="PAG_ESTADO" ColumnName="PAG_ESTADO" />
-                <ScalarProperty Name="PAG_ADD" ColumnName="PAG_ADD" />
+                <ScalarProperty Name="PAG_VALOR" ColumnName="PAG_VALOR" />
+                <ScalarProperty Name="PAG_FECHA" ColumnName="PAG_FECHA" />
+                <ScalarProperty Name="FPA_ID" ColumnName="FPA_ID" />
+                <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
+                <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
+                <ScalarProperty Name="PAG_ID" ColumnName="PAG_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBL_PEDIDO">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_PEDIDO">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_PEDIDO">
               <MappingFragment StoreEntitySet="TBL_PEDIDO">
-                <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
-                <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
-                <ScalarProperty Name="CLI_ID" ColumnName="CLI_ID" />
-                <ScalarProperty Name="CLI_DNI" ColumnName="CLI_DNI" />
-                <ScalarProperty Name="PED_NUMERO" ColumnName="PED_NUMERO" />
-                <ScalarProperty Name="PED_CLIENTE" ColumnName="PED_CLIENTE" />
-                <ScalarProperty Name="PED_DIRECCION" ColumnName="PED_DIRECCION" />
+                <ScalarProperty Name="PED_FECHA_CREACION" ColumnName="PED_FECHA_CREACION" />
+                <ScalarProperty Name="PED_ESTADO" ColumnName="PED_ESTADO" />
                 <ScalarProperty Name="PED_TELEFONO" ColumnName="PED_TELEFONO" />
-                <ScalarProperty Name="PED_DNI" ColumnName="PED_DNI" />
+                <ScalarProperty Name="PED_DIRECCION" ColumnName="PED_DIRECCION" />
+                <ScalarProperty Name="PED_CLIENTE" ColumnName="PED_CLIENTE" />
+                <ScalarProperty Name="PED_IDENTIFICACION" ColumnName="PED_IDENTIFICACION" />
+                <ScalarProperty Name="PED_NUMERO" ColumnName="PED_NUMERO" />
+                <ScalarProperty Name="CLI_IDENTIFICACION" ColumnName="CLI_IDENTIFICACION" />
+                <ScalarProperty Name="CLI_ID" ColumnName="CLI_ID" />
+                <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
                 <ScalarProperty Name="PED_TOTAL" ColumnName="PED_TOTAL" />
                 <ScalarProperty Name="PED_SUBTOTAL" ColumnName="PED_SUBTOTAL" />
-                <ScalarProperty Name="PED_ESTADO" ColumnName="PED_ESTADO" />
-                <ScalarProperty Name="PED_ADD" ColumnName="PED_ADD" />
+                <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBL_PRODUCTO">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_PRODUCTO">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_PRODUCTO">
               <MappingFragment StoreEntitySet="TBL_PRODUCTO">
-                <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
-                <ScalarProperty Name="CATP_ID" ColumnName="CATP_ID" />
-                <ScalarProperty Name="PRO_CODIGO" ColumnName="PRO_CODIGO" />
-                <ScalarProperty Name="PRO_NOMBRE" ColumnName="PRO_NOMBRE" />
                 <ScalarProperty Name="PRO_DESCRIPCION" ColumnName="PRO_DESCRIPCION" />
-                <ScalarProperty Name="PRO_PRECIOCOMPRA" ColumnName="PRO_PRECIOCOMPRA" />
-                <ScalarProperty Name="PRO_PRECIO_VENTA" ColumnName="PRO_PRECIO_VENTA" />
                 <ScalarProperty Name="PRO_IMAGEN" ColumnName="PRO_IMAGEN" />
                 <ScalarProperty Name="PRO_ESTADO" ColumnName="PRO_ESTADO" />
-                <ScalarProperty Name="PRO_STOCKMAX" ColumnName="PRO_STOCKMAX" />
-                <ScalarProperty Name="PRO_STOCKMIN" ColumnName="PRO_STOCKMIN" />
-                <ScalarProperty Name="PRO_ADD" ColumnName="PRO_ADD" />
+                <ScalarProperty Name="PRO_FECHA_CREACION" ColumnName="PRO_FECHA_CREACION" />
+                <ScalarProperty Name="PRO_STOCK_MAXIMO" ColumnName="PRO_STOCK_MAXIMO" />
+                <ScalarProperty Name="PRO_STOCK_MINIMO" ColumnName="PRO_STOCK_MINIMO" />
+                <ScalarProperty Name="PRO_PRECIO_VENTA" ColumnName="PRO_PRECIO_VENTA" />
+                <ScalarProperty Name="PRO_PRECIO_COMPRA" ColumnName="PRO_PRECIO_COMPRA" />
+                <ScalarProperty Name="PRO_NOMBRE" ColumnName="PRO_NOMBRE" />
+                <ScalarProperty Name="PRO_CODIGO" ColumnName="PRO_CODIGO" />
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+                <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBL_ROL">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_ROL">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_ROL">
               <MappingFragment StoreEntitySet="TBL_ROL">
-                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
-                <ScalarProperty Name="ROL_DESCRIPCION" ColumnName="ROL_DESCRIPCION" />
+                <ScalarProperty Name="ROL_FECHA_CREACION" ColumnName="ROL_FECHA_CREACION" />
                 <ScalarProperty Name="ROL_ESTADO" ColumnName="ROL_ESTADO" />
-                <ScalarProperty Name="ROL_ADD" ColumnName="ROL_ADD" />
+                <ScalarProperty Name="ROL_DESCRIPCION" ColumnName="ROL_DESCRIPCION" />
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBL_USUARIO">
-            <EntityTypeMapping TypeName="BDD_ECOMMERCEModel.TBL_USUARIO">
+            <EntityTypeMapping TypeName="EcommerceModel.TBL_USUARIO">
               <MappingFragment StoreEntitySet="TBL_USUARIO">
-                <ScalarProperty Name="USU_ID" ColumnName="USU_ID" />
-                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
-                <ScalarProperty Name="USU_CORREO" ColumnName="USU_CORREO" />
-                <ScalarProperty Name="USU_PASSWORD" ColumnName="USU_PASSWORD" />
-                <ScalarProperty Name="USU_NOMBRE" ColumnName="USU_NOMBRE" />
-                <ScalarProperty Name="USU_APELLIDOS" ColumnName="USU_APELLIDOS" />
+                <ScalarProperty Name="USU_FECHA_CREACION" ColumnName="USU_FECHA_CREACION" />
                 <ScalarProperty Name="USU_ESTADO" ColumnName="USU_ESTADO" />
-                <ScalarProperty Name="USU_ADD" ColumnName="USU_ADD" />
+                <ScalarProperty Name="USU_APELLIDOS" ColumnName="USU_APELLIDOS" />
+                <ScalarProperty Name="USU_NOMBRES" ColumnName="USU_NOMBRES" />
+                <ScalarProperty Name="USU_CONTRASENA" ColumnName="USU_CONTRASENA" />
+                <ScalarProperty Name="USU_CORREO" ColumnName="USU_CORREO" />
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="USU_ID" ColumnName="USU_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

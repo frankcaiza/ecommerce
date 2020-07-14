@@ -13,10 +13,10 @@ namespace Ecommerce.WebASP.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BDD_ECOMMERCEEntities : DbContext
+    public partial class EcommerceEntities : DbContext
     {
-        public BDD_ECOMMERCEEntities()
-            : base("name=BDD_ECOMMERCEEntities")
+        public EcommerceEntities()
+            : base("name=EcommerceEntities")
         {
         }
     
@@ -27,12 +27,12 @@ namespace Ecommerce.WebASP.Models
     
         public virtual DbSet<TBL_CATEGORIA> TBL_CATEGORIA { get; set; }
         public virtual DbSet<TBL_CLIENTE> TBL_CLIENTE { get; set; }
+        public virtual DbSet<TBL_DETALLE_IMPUESTOS> TBL_DETALLE_IMPUESTOS { get; set; }
         public virtual DbSet<TBL_DETALLE_PEDIDO> TBL_DETALLE_PEDIDO { get; set; }
-        public virtual DbSet<TBL_DETALLEIMPUESTOS> TBL_DETALLEIMPUESTOS { get; set; }
-        public virtual DbSet<TBL_DIRECCIONES> TBL_DIRECCIONES { get; set; }
+        public virtual DbSet<TBL_DIRECCION> TBL_DIRECCION { get; set; }
         public virtual DbSet<TBL_FORMA_PAGO> TBL_FORMA_PAGO { get; set; }
         public virtual DbSet<TBL_IMPUESTOS> TBL_IMPUESTOS { get; set; }
-        public virtual DbSet<TBL_PAGO> TBL_PAGO { get; set; }
+        public virtual DbSet<TBL_PAGOS> TBL_PAGOS { get; set; }
         public virtual DbSet<TBL_PEDIDO> TBL_PEDIDO { get; set; }
         public virtual DbSet<TBL_PRODUCTO> TBL_PRODUCTO { get; set; }
         public virtual DbSet<TBL_ROL> TBL_ROL { get; set; }

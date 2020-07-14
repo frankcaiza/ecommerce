@@ -17,16 +17,16 @@ namespace Ecommerce.WebASP.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TBL_FORMA_PAGO()
         {
-            this.TBL_PAGO = new HashSet<TBL_PAGO>();
+            this.TBL_PAGOS = new HashSet<TBL_PAGOS>();
         }
     
         public int FPA_ID { get; set; }
         public string FPA_DESCRIPCION { get; set; }
         public string FPA_CODIGOSRI { get; set; }
-        public Nullable<System.DateTime> FPA_ADD { get; set; }
         public string FPA_ESTADO { get; set; }
+        public Nullable<System.DateTime> FPA_FECHA_CREACION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_PAGO> TBL_PAGO { get; set; }
+        public virtual ICollection<TBL_PAGOS> TBL_PAGOS { get; set; }
     }
 }

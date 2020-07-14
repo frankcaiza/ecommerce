@@ -17,11 +17,11 @@ namespace Ecommerce.WebASP.Models
         public int USU_ID { get; set; }
         public Nullable<int> ROL_ID { get; set; }
         public string USU_CORREO { get; set; }
-        public string USU_PASSWORD { get; set; }
-        public string USU_NOMBRE { get; set; }
+        public string USU_CONTRASENA { get; set; }
+        public string USU_NOMBRES { get; set; }
         public string USU_APELLIDOS { get; set; }
         public string USU_ESTADO { get; set; }
-        public Nullable<System.DateTime> USU_ADD { get; set; }
+        public Nullable<System.DateTime> USU_FECHA_CREACION { get; set; }
     
         public virtual TBL_ROL TBL_ROL { get; set; }
     }

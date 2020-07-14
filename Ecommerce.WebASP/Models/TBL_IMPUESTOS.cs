@@ -17,17 +17,17 @@ namespace Ecommerce.WebASP.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TBL_IMPUESTOS()
         {
-            this.TBL_DETALLEIMPUESTOS = new HashSet<TBL_DETALLEIMPUESTOS>();
+            this.TBL_DETALLE_IMPUESTOS = new HashSet<TBL_DETALLE_IMPUESTOS>();
         }
     
         public int IMP_ID { get; set; }
-        public string IMP_CODIGOSRI { get; set; }
+        public string IMP_CODIGO_SRI { get; set; }
         public string IMP_DESCRIPCION { get; set; }
         public Nullable<decimal> IMP_PORCENTAJE { get; set; }
         public string IMP_ESTADO { get; set; }
-        public Nullable<System.DateTime> IMP_ADD { get; set; }
+        public Nullable<System.DateTime> IMP_FECHA_CREACION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_DETALLEIMPUESTOS> TBL_DETALLEIMPUESTOS { get; set; }
+        public virtual ICollection<TBL_DETALLE_IMPUESTOS> TBL_DETALLE_IMPUESTOS { get; set; }
     }
 }

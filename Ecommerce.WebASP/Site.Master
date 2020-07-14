@@ -4,69 +4,151 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title>Asistec-Ecommerce</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
+        <%: Styles.Render("~/vendor/css/bootstrap.min.css") %>
+        <%: Styles.Render("~/vendor/css/slick.css") %>
+        <%: Styles.Render("~/vendor/css/slick-theme.css") %>
+        <%: Styles.Render("~/vendor/css/nouislider.min.css") %>
+        <%: Styles.Render("~/vendor/css/font-awesome.min.css") %>
+        <%: Styles.Render("~/vendor/font-awesome/css/font-awesome.min.css") %>
+        <%: Styles.Render("~/vendor/css/style.css") %>
+        <%: Styles.Render("~/vendor/bootstrap-fileinput/css/fileinput.css") %>
+        <%: Styles.Render("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/png" href='img/icon.jpg' />
 
 </head>
 <body>
-    <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
+    <!-- HEADER -->
+    <header>
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-6">
+                        <div class="header-logo">
+                            <a href="#" class="logo">
+                                <img src='<%=ResolveClientUrl("~/img/logofc.jpg")%>' />
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
+                    <!-- ACCOUNT -->
+                    <div class="col-md-6 clearfix">
+                        <div class="header-ctn">
+                            <!-- Cart -->
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Your Cart</span>
+                                    <div class="qty">3</div>
+                                </a>
+                                <div class="cart-dropdown">
+                                    <div class="cart-list">
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src='<%=ResolveClientUrl("~/img/product01.png")%>' />
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                                <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+                                            </div>
+                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                        </div>
+
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src='<%=ResolveClientUrl("~/img/product02.png")%>' />
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                                <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
+                                            </div>
+                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="cart-summary">
+                                        <small>3 Item(s) selected</small>
+                                        <h5>SUBTOTAL: $2940.00</h5>
+                                    </div>
+                                    <div class="cart-btns">
+                                        <a href="#">View Cart</a>
+                                        <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa fa-user"></i>
+                                    <span>Frank</span>
+                                </a>
+                                <div class="cart-dropdown">
+                                    <div class="cart-list">
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src='<%=ResolveClientUrl("~/img/user.png")%>' />
+                                            </div>
+                                            <div class="product-body">
+                                                Frank Caiza 
+													ADMINISTRADOR
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-btns">
+                                        <a href="#">Perfil</a>
+                                        <a href="#">Salir</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Cart -->
+                        </div>
+                    </div>
+                    <!-- /ACCOUNT -->
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
-                    </ul>
-                </div>
+                <!-- row -->
             </div>
+            <!-- container -->
         </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <form runat="server">
+
+        <script src='<%=ResolveClientUrl("~/vendor/js/jquery.min.js")%>'></script>
+        <script src='<%=ResolveClientUrl("~/vendor/js/bootstrap.min.js")%>'></script>
+        <script src='<%=ResolveClientUrl("~/vendor/js/slick.min.js")%>'></script>
+        <script src='<%=ResolveClientUrl("~/vendor/js/nouislider.min.js")%>'></script>
+        <script src='<%=ResolveClientUrl("~/vendor/js/jquery.zoom.min.js")%>'></script>
+        <script src='<%=ResolveClientUrl("~/vendor/js/main.js")%>'></script>
+        <script src='<%=ResolveClientUrl("~/vendor/bootstrap-fileinput/js/fileinput.js")%>'></script>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
-            </footer>
         </div>
 
+        <footer id="footer">
+            <div id="bottom-footer" class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span class="copyright">AsistecFC Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                Desarrollado por FC
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </form>
+
 </body>
 </html>

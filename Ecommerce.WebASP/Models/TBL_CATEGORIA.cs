@@ -20,12 +20,11 @@ namespace Ecommerce.WebASP.Models
             this.TBL_PRODUCTO = new HashSet<TBL_PRODUCTO>();
         }
     
-        public int CATP_ID { get; set; }
-        public string CATP_NOMBRE { get; set; }
-        public string CATP_DESCRIPCION { get; set; }
-        public string CATP_ESTADO { get; set; }
-        public string CAPT_LOG { get; set; }
-        public Nullable<System.DateTime> CAPT_ADD { get; set; }
+        public int CAT_ID { get; set; }
+        public string CAT_NOMBRE { get; set; }
+        public string CAT_DESCRIPCION { get; set; }
+        public string CAT_ESTADO { get; set; }
+        public Nullable<System.DateTime> CAT_FECHA_CREACION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_PRODUCTO> TBL_PRODUCTO { get; set; }

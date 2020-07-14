@@ -1,2 +1,3 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserControlCat.ascx.cs" Inherits="Ecommerce.WebASP.UserControl.UserControlCat" %>
-<asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+<asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control"></asp:DropDownList>
+<asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="DropDownList1" runat="server" ErrorMessage="Categoria Campo Requerido" InitialValue="0">*</asp:RequiredFieldValidator>

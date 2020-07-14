@@ -10,7 +10,8 @@ namespace Ecommerce.WebASP.LogicaNegocio
 {
     public class LogicaProducto
     {
-        private static BDD_ECOMMERCEEntities db = new BDD_ECOMMERCEEntities();
+        private static EcommerceEntities db = new EcommerceEntities();
+
 
         public static async Task<List<TBL_PRODUCTO>> getAllProduct()
         {
@@ -22,7 +23,7 @@ namespace Ecommerce.WebASP.LogicaNegocio
             catch (Exception ex)
             {
 
-                throw new ArgumentException("Error al consultar producto");
+                throw new ArgumentException("Error : " + ex.Message);
             }
         }
 
@@ -37,7 +38,7 @@ namespace Ecommerce.WebASP.LogicaNegocio
             catch (Exception ex)
             {
 
-                throw new ArgumentException("Error al consultar producto");
+                throw new ArgumentException("Error : " + ex.Message);
             }
         }
 
@@ -51,8 +52,70 @@ namespace Ecommerce.WebASP.LogicaNegocio
             }
             catch (Exception ex)
             {
+                throw new ArgumentException("Error : " + ex.Message);
+            }
+        }
 
-                throw new ArgumentException("Error al consultar producto");
+        public static async Task<List<TBL_PRODUCTO>> searchProductxCod(string codigo)
+        {
+            try
+            {
+                return await db.TBL_PRODUCTO.Where(data => data.PRO_ESTADO == "A"
+                && data.PRO_CODIGO.StartsWith(codigo)).ToListAsync();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Error : " + ex.Message);
+            }
+        }
+
+        public static async Task<List<TBL_PRODUCTO>> searchProductxNom(string nombre)
+        {
+            try
+            {
+                return await db.TBL_PRODUCTO.Where(data => data.PRO_ESTADO == "A"
+                && data.PRO_NOMBRE.StartsWith(nombre)).ToListAsync();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Error : " + ex.Message);
+            }
+        }
+
+        public static async Task<List<TBL_PRODUCTO>> searchProductxCat(string categoria)
+        {
+            try
+            {
+                return await db.TBL_PRODUCTO.Where(data => data.PRO_ESTADO == "A"
+                && data.TBL_CATEGORIA.CAT_NOMBRE.StartsWith(categoria)
+                ).ToListAsync();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Error : " + ex.Message);
+            }
+        }
+
+        public static int getNextSequence()
+        {
+            try
+            {
+                var query = db.Database.SqlQuery<int>("SELECT NEXT VALUE FOR sq_ProductoId");
+                var task = query.SingleAsync();
+                int valorSequence = task.Result;
+
+                return valorSequence;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException(ex.Message);
             }
         }
 
@@ -61,8 +124,9 @@ namespace Ecommerce.WebASP.LogicaNegocio
             try
             {
                 bool resultado = false;
+                _infoProducto.PRO_ID = getNextSequence();
                 _infoProducto.PRO_ESTADO = "A";
-                _infoProducto.PRO_ADD = DateTime.Now;
+                _infoProducto.PRO_FECHA_CREACION = DateTime.Now;
                 db.TBL_PRODUCTO.Add(_infoProducto);
 
                 //Actualizar Datos
@@ -73,7 +137,7 @@ namespace Ecommerce.WebASP.LogicaNegocio
             catch (Exception ex)
             {
 
-                throw new ArgumentException("Error al guardar producto");
+                throw new ArgumentException("Error : " + ex.Message);
             }
         }
 
@@ -82,8 +146,8 @@ namespace Ecommerce.WebASP.LogicaNegocio
             try
             {
                 bool resultado = false;
-                _infoProducto.PRO_ADD = DateTime.Now;
-                               
+                _infoProducto.PRO_FECHA_CREACION = DateTime.Now;
+
                 //Actualizar Datos
                 await db.SaveChangesAsync();
                 resultado = true;
@@ -92,7 +156,7 @@ namespace Ecommerce.WebASP.LogicaNegocio
             catch (Exception ex)
             {
 
-                throw new ArgumentException("Error al modificar producto");
+                throw new ArgumentException("Error : " + ex.Message);
             }
         }
         public static async Task<bool> deleteProduct(TBL_PRODUCTO _infoProducto)
@@ -100,7 +164,7 @@ namespace Ecommerce.WebASP.LogicaNegocio
             try
             {
                 bool resultado = false;
-                _infoProducto.PRO_ADD = DateTime.Now;
+                _infoProducto.PRO_FECHA_CREACION = DateTime.Now;
                 _infoProducto.PRO_ESTADO = "I";
 
                 //Actualizar Datos
@@ -112,9 +176,10 @@ namespace Ecommerce.WebASP.LogicaNegocio
             catch (Exception ex)
             {
 
-                throw new ArgumentException("Error al eliminar producto");
+                throw new ArgumentException("Error : " + ex.Message);
             }
         }
+
 
     }
 }

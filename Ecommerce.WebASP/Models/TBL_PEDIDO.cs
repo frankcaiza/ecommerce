@@ -18,27 +18,27 @@ namespace Ecommerce.WebASP.Models
         public TBL_PEDIDO()
         {
             this.TBL_DETALLE_PEDIDO = new HashSet<TBL_DETALLE_PEDIDO>();
-            this.TBL_PAGO = new HashSet<TBL_PAGO>();
+            this.TBL_PAGOS = new HashSet<TBL_PAGOS>();
         }
     
         public int PED_ID { get; set; }
+        public Nullable<decimal> PED_SUBTOTAL { get; set; }
+        public Nullable<decimal> PED_TOTAL { get; set; }
         public System.DateTime PED_FECHA { get; set; }
-        public Nullable<long> CLI_ID { get; set; }
-        public Nullable<int> CLI_DNI { get; set; }
+        public Nullable<int> CLI_ID { get; set; }
+        public string CLI_IDENTIFICACION { get; set; }
         public Nullable<int> PED_NUMERO { get; set; }
+        public string PED_IDENTIFICACION { get; set; }
         public string PED_CLIENTE { get; set; }
         public string PED_DIRECCION { get; set; }
         public string PED_TELEFONO { get; set; }
-        public string PED_DNI { get; set; }
-        public Nullable<decimal> PED_TOTAL { get; set; }
-        public Nullable<decimal> PED_SUBTOTAL { get; set; }
         public string PED_ESTADO { get; set; }
-        public Nullable<System.DateTime> PED_ADD { get; set; }
+        public Nullable<System.DateTime> PED_FECHA_CREACION { get; set; }
     
         public virtual TBL_CLIENTE TBL_CLIENTE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_DETALLE_PEDIDO> TBL_DETALLE_PEDIDO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_PAGO> TBL_PAGO { get; set; }
+        public virtual ICollection<TBL_PAGOS> TBL_PAGOS { get; set; }
     }
 }

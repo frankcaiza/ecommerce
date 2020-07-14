@@ -21,17 +21,17 @@ namespace Ecommerce.WebASP.Models
         }
     
         public int PRO_ID { get; set; }
-        public Nullable<int> CATP_ID { get; set; }
+        public Nullable<int> CAT_ID { get; set; }
         public string PRO_CODIGO { get; set; }
         public string PRO_NOMBRE { get; set; }
-        public string PRO_DESCRIPCION { get; set; }
-        public Nullable<decimal> PRO_PRECIOCOMPRA { get; set; }
+        public Nullable<decimal> PRO_PRECIO_COMPRA { get; set; }
         public Nullable<decimal> PRO_PRECIO_VENTA { get; set; }
-        public string PRO_IMAGEN { get; set; }
+        public Nullable<int> PRO_STOCK_MINIMO { get; set; }
+        public Nullable<int> PRO_STOCK_MAXIMO { get; set; }
+        public Nullable<System.DateTime> PRO_FECHA_CREACION { get; set; }
         public string PRO_ESTADO { get; set; }
-        public Nullable<int> PRO_STOCKMAX { get; set; }
-        public Nullable<int> PRO_STOCKMIN { get; set; }
-        public Nullable<System.DateTime> PRO_ADD { get; set; }
+        public string PRO_IMAGEN { get; set; }
+        public string PRO_DESCRIPCION { get; set; }
     
         public virtual TBL_CATEGORIA TBL_CATEGORIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -23,7 +23,7 @@ namespace Ecommerce.WebASP.Models
         public int ROL_ID { get; set; }
         public string ROL_DESCRIPCION { get; set; }
         public string ROL_ESTADO { get; set; }
-        public Nullable<System.DateTime> ROL_ADD { get; set; }
+        public Nullable<System.DateTime> ROL_FECHA_CREACION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_USUARIO> TBL_USUARIO { get; set; }

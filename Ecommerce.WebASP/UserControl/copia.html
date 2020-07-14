@@ -1,0 +1,67 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UC_Gridview_Datos.ascx.cs" Inherits="Ecommerce.WebASP.UserControl.UC_Gridview_Datos" %>
+<asp:GridView ID="GridView1" runat="server" Class="table table-striped table-condensed table-bordered" BorderStyle="None" BorderWidth="2" OnRowCommand="GridView1_RowCommand" AutoGenerateColumns="false">
+    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+    <Columns>
+        <asp:TemplateField HeaderText="ID" ShowHeader="true">
+            <ItemTemplate>
+                <asp:Label ID="Label1" runat="server" Text='<%# Eval("ID") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="CODIGO" ShowHeader="true">
+            <ItemTemplate>
+                <asp:Label ID="Label2" runat="server" Text='<%# Eval("CODIGO") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="NOMBRE" ShowHeader="true">
+            <ItemTemplate>
+                <asp:Label ID="Label3" runat="server" Text='<%# Eval("NOMBRE") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="PRECIO_COMPRA" ShowHeader="true">
+            <ItemTemplate>
+                <asp:Label ID="Label4" runat="server" Text='<%# Eval("PRECIO_COMPRA") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="PRECIO_VENTA" ShowHeader="true">
+            <ItemTemplate>
+                <asp:Label ID="Label5" runat="server" Text='<%# Eval("PRECIO_VENTA") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="CATEGORIA" ShowHeader="true">
+            <ItemTemplate>
+                <asp:Label ID="Label6" runat="server" Text='<%# Eval("CATEGORIA") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="STOCK_MIN" ShowHeader="true">
+            <ItemTemplate>
+                <asp:Label ID="Label7" runat="server" Text='<%# Eval("STOCK_MIN") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="STOCK_MAX" ShowHeader="true">
+            <ItemTemplate>
+                <asp:Label ID="Label8" runat="server" Text='<%# Eval("STOCK_MAX") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="DESCRIPCION" ShowHeader="true">
+            <ItemTemplate>
+                <asp:Label ID="Label9" runat="server" Text='<%# Eval("DESCRIPCION") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="ESTADO" ShowHeader="true">
+            <ItemTemplate>
+                <asp:Label ID="Label10" runat="server" Text='<%# Eval("ESTADO") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="IMAGEN" ShowHeader="true">
+            <ItemTemplate>
+                <asp:Image ID="IMAGEN" ImageUrl='<%#Eval("IMAGEN") %>' runat="server" Width="52px" Height="52px" />
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Actions" ShowHeader="true">
+            <ItemTemplate>
+                <asp:ImageButton ID="imbEditar" runat="server" ImageUrl="~/Icons/icons8-edit-64.png" title="Editar" Width="32px" CommandName="Modificar" CommandArgument='<%#Eval("ID") %>' Height="32px" />
+                <asp:ImageButton ID="imbEliminar" runat="server" ImageUrl="~/Icons/icons8-trash-can-48.png" title="Eliminar" Width="32px" CommandName="Eliminar" CommandArgument='<%#Eval("ID") %>' Height="32px" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>

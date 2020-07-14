@@ -44,6 +44,7 @@ namespace Ecommerce.WebASP.UserControl
             }
         }
 
+        //Llamado de funcion a la logica de forma async
         public void UC_Cargar()
         {
             try
@@ -54,12 +55,12 @@ namespace Ecommerce.WebASP.UserControl
                 if (_listCat != null && _listCat.Count > 0)
                 {
                     //Ordenar linq
-                    var data = _listCat.OrderBy(lista => lista.CATP_NOMBRE).ToList();
+                    var data = _listCat.OrderBy(lista => lista.CAT_NOMBRE).ToList();
                    //Insertar dregistro en la lista de categoria en el indice 0
-                    data.Insert(0, new TBL_CATEGORIA { CATP_NOMBRE = "Seleccione una Categoria", CATP_ID = 0 });
+                    data.Insert(0, new TBL_CATEGORIA { CAT_NOMBRE = "Seleccione la Categoria", CAT_ID = 0 });
                     DropDownList1.DataSource = data;
-                    DropDownList1.DataTextField = "CATP_NOMBRE";
-                    DropDownList1.DataValueField = "CATP_ID";
+                    DropDownList1.DataTextField = "CAT_NOMBRE";
+                    DropDownList1.DataValueField = "CAT_ID";
                     
                     DropDownList1.DataBind();
                 }
