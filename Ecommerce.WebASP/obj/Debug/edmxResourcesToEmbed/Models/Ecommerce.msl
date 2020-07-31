@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EcommerceModelStoreContainer" CdmEntityContainer="EcommerceEntities">
+    <EntitySetMapping Name="TBL_CATEGORIA">
+      <EntityTypeMapping TypeName="EcommerceModel.TBL_CATEGORIA">
+        <MappingFragment StoreEntitySet="TBL_CATEGORIA">
+          <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+          <ScalarProperty Name="CAT_NOMBRE" ColumnName="CAT_NOMBRE" />
+          <ScalarProperty Name="CAT_DESCRIPCION" ColumnName="CAT_DESCRIPCION" />
+          <ScalarProperty Name="CAT_ESTADO" ColumnName="CAT_ESTADO" />
+          <ScalarProperty Name="CAT_FECHA_CREACION" ColumnName="CAT_FECHA_CREACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_CLIENTE">
+      <EntityTypeMapping TypeName="EcommerceModel.TBL_CLIENTE">
+        <MappingFragment StoreEntitySet="TBL_CLIENTE">
+          <ScalarProperty Name="CLI_ID" ColumnName="CLI_ID" />
+          <ScalarProperty Name="CLI_DIRECCION" ColumnName="CLI_DIRECCION" />
+          <ScalarProperty Name="CLI_TELEFONO" ColumnName="CLI_TELEFONO" />
+          <ScalarProperty Name="CLI_IDENTIFICACION" ColumnName="CLI_IDENTIFICACION" />
+          <ScalarProperty Name="CLI_FECHA_CREACION" ColumnName="CLI_FECHA_CREACION" />
+          <ScalarProperty Name="CLI_ESTADO" ColumnName="CLI_ESTADO" />
+          <ScalarProperty Name="CLI_APELLIDOS" ColumnName="CLI_APELLIDOS" />
+          <ScalarProperty Name="CLI_NOMBRES" ColumnName="CLI_NOMBRES" />
+          <ScalarProperty Name="CLI_FECHA_NACIMIENTO" ColumnName="CLI_FECHA_NACIMIENTO" />
+          <ScalarProperty Name="CLI_CORREO" ColumnName="CLI_CORREO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_DETALLE_IMPUESTOS">
+      <EntityTypeMapping TypeName="EcommerceModel.TBL_DETALLE_IMPUESTOS">
+        <MappingFragment StoreEntitySet="TBL_DETALLE_IMPUESTOS">
+          <ScalarProperty Name="DIM_ID" ColumnName="DIM_ID" />
+          <ScalarProperty Name="IMP_ID" ColumnName="IMP_ID" />
+          <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+          <ScalarProperty Name="DIM_ESTADO" ColumnName="DIM_ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_DETALLE_PEDIDO">
+      <EntityTypeMapping TypeName="EcommerceModel.TBL_DETALLE_PEDIDO">
+        <MappingFragment StoreEntitySet="TBL_DETALLE_PEDIDO">
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
+          <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
+          <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+          <ScalarProperty Name="DEP_CANTIDAD" ColumnName="DEP_CANTIDAD" />
+          <ScalarProperty Name="DEP_DESCRIPCION" ColumnName="DEP_DESCRIPCION" />
+          <ScalarProperty Name="DEP_PRECIOUNITARIO" ColumnName="DEP_PRECIOUNITARIO" />
+          <ScalarProperty Name="DEP_PRECIOTOTAL" ColumnName="DEP_PRECIOTOTAL" />
+          <ScalarProperty Name="DEP_ESTADO" ColumnName="DEP_ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_FORMA_PAGO">
+      <EntityTypeMapping TypeName="EcommerceModel.TBL_FORMA_PAGO">
+        <MappingFragment StoreEntitySet="TBL_FORMA_PAGO">
+          <ScalarProperty Name="FPA_ID" ColumnName="FPA_ID" />
+          <ScalarProperty Name="FPA_DESCRIPCION" ColumnName="FPA_DESCRIPCION" />
+          <ScalarProperty Name="FPA_CODIGOSRI" ColumnName="FPA_CODIGOSRI" />
+          <ScalarProperty Name="FPA_ESTADO" ColumnName="FPA_ESTADO" />
+          <ScalarProperty Name="FPA_FECHA_CREACION" ColumnName="FPA_FECHA_CREACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_IMPUESTOS">
+      <EntityTypeMapping TypeName="EcommerceModel.TBL_IMPUESTOS">
+        <MappingFragment StoreEntitySet="TBL_IMPUESTOS">
+          <ScalarProperty Name="IMP_ID" ColumnName="IMP_ID" />
+          <ScalarProperty Name="IMP_CODIGO_SRI" ColumnName="IMP_CODIGO_SRI" />
+          <ScalarProperty Name="IMP_DESCRIPCION" ColumnName="IMP_DESCRIPCION" />
+          <ScalarProperty Name="IMP_PORCENTAJE" ColumnName="IMP_PORCENTAJE" />
+          <ScalarProperty Name="IMP_ESTADO" ColumnName="IMP_ESTADO" />
+          <ScalarProperty Name="IMP_FECHA_CREACION" ColumnName="IMP_FECHA_CREACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_PAGOS">
+      <EntityTypeMapping TypeName="EcommerceModel.TBL_PAGOS">
+        <MappingFragment StoreEntitySet="TBL_PAGOS">
+          <ScalarProperty Name="PAG_ID" ColumnName="PAG_ID" />
+          <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
+          <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
+          <ScalarProperty Name="FPA_ID" ColumnName="FPA_ID" />
+          <ScalarProperty Name="PAG_FECHA" ColumnName="PAG_FECHA" />
+          <ScalarProperty Name="PAG_VALOR" ColumnName="PAG_VALOR" />
+          <ScalarProperty Name="PAG_ESTADO" ColumnName="PAG_ESTADO" />
+          <ScalarProperty Name="PAG_FECHA_CREACION" ColumnName="PAG_FECHA_CREACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_PEDIDO">
+      <EntityTypeMapping TypeName="EcommerceModel.TBL_PEDIDO">
+        <MappingFragment StoreEntitySet="TBL_PEDIDO">
+          <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
+          <ScalarProperty Name="PED_SUBTOTAL" ColumnName="PED_SUBTOTAL" />
+          <ScalarProperty Name="PED_TOTAL" ColumnName="PED_TOTAL" />
+          <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
+          <ScalarProperty Name="CLI_ID" ColumnName="CLI_ID" />
+          <ScalarProperty Name="CLI_IDENTIFICACION" ColumnName="CLI_IDENTIFICACION" />
+          <ScalarProperty Name="PED_NUMERO" ColumnName="PED_NUMERO" />
+          <ScalarProperty Name="PED_IDENTIFICACION" ColumnName="PED_IDENTIFICACION" />
+          <ScalarProperty Name="PED_CLIENTE" ColumnName="PED_CLIENTE" />
+          <ScalarProperty Name="PED_DIRECCION" ColumnName="PED_DIRECCION" />
+          <ScalarProperty Name="PED_TELEFONO" ColumnName="PED_TELEFONO" />
+          <ScalarProperty Name="PED_ESTADO" ColumnName="PED_ESTADO" />
+          <ScalarProperty Name="PED_FECHA_CREACION" ColumnName="PED_FECHA_CREACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_PRODUCTO">
+      <EntityTypeMapping TypeName="EcommerceModel.TBL_PRODUCTO">
+        <MappingFragment StoreEntitySet="TBL_PRODUCTO">
+          <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+          <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+          <ScalarProperty Name="PRO_CODIGO" ColumnName="PRO_CODIGO" />
+          <ScalarProperty Name="PRO_NOMBRE" ColumnName="PRO_NOMBRE" />
+          <ScalarProperty Name="PRO_PRECIO_COMPRA" ColumnName="PRO_PRECIO_COMPRA" />
+          <ScalarProperty Name="PRO_PRECIO_VENTA" ColumnName="PRO_PRECIO_VENTA" />
+          <ScalarProperty Name="PRO_STOCK_MINIMO" ColumnName="PRO_STOCK_MINIMO" />
+          <ScalarProperty Name="PRO_STOCK_MAXIMO" ColumnName="PRO_STOCK_MAXIMO" />
+          <ScalarProperty Name="PRO_FECHA_CREACION" ColumnName="PRO_FECHA_CREACION" />
+          <ScalarProperty Name="PRO_ESTADO" ColumnName="PRO_ESTADO" />
+          <ScalarProperty Name="PRO_IMAGEN" ColumnName="PRO_IMAGEN" />
+          <ScalarProperty Name="PRO_DESCRIPCION" ColumnName="PRO_DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_ROL">
+      <EntityTypeMapping TypeName="EcommerceModel.TBL_ROL">
+        <MappingFragment StoreEntitySet="TBL_ROL">
+          <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+          <ScalarProperty Name="ROL_DESCRIPCION" ColumnName="ROL_DESCRIPCION" />
+          <ScalarProperty Name="ROL_ESTADO" ColumnName="ROL_ESTADO" />
+          <ScalarProperty Name="ROL_FECHA_CREACION" ColumnName="ROL_FECHA_CREACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_USUARIO">
+      <EntityTypeMapping TypeName="EcommerceModel.TBL_USUARIO">
+        <MappingFragment StoreEntitySet="TBL_USUARIO">
+          <ScalarProperty Name="USU_ID" ColumnName="USU_ID" />
+          <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+          <ScalarProperty Name="USU_CORREO" ColumnName="USU_CORREO" />
+          <ScalarProperty Name="USU_CONTRASENA" ColumnName="USU_CONTRASENA" />
+          <ScalarProperty Name="USU_NOMBRES" ColumnName="USU_NOMBRES" />
+          <ScalarProperty Name="USU_APELLIDOS" ColumnName="USU_APELLIDOS" />
+          <ScalarProperty Name="USU_INTENTOS" ColumnName="USU_INTENTOS" />
+          <ScalarProperty Name="USU_ESTADO" ColumnName="USU_ESTADO" />
+          <ScalarProperty Name="USU_FECHA_ACTUALIZACION" ColumnName="USU_FECHA_ACTUALIZACION" />
+          <ScalarProperty Name="USU_FECHA_CREACION" ColumnName="USU_FECHA_CREACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
