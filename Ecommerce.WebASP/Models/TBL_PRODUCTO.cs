@@ -17,6 +17,7 @@ namespace Ecommerce.WebASP.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TBL_PRODUCTO()
         {
+            this.TBL_DETALLE_IMPUESTOS = new HashSet<TBL_DETALLE_IMPUESTOS>();
             this.TBL_DETALLE_PEDIDO = new HashSet<TBL_DETALLE_PEDIDO>();
         }
     
@@ -34,6 +35,8 @@ namespace Ecommerce.WebASP.Models
         public string PRO_DESCRIPCION { get; set; }
     
         public virtual TBL_CATEGORIA TBL_CATEGORIA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_DETALLE_IMPUESTOS> TBL_DETALLE_IMPUESTOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_DETALLE_PEDIDO> TBL_DETALLE_PEDIDO { get; set; }
     }

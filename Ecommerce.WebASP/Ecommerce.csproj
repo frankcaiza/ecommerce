@@ -125,6 +125,8 @@
     <Content Include="Icons\icons8-trash-can-48.png" />
     <Content Include="Icons\upload-2493114_640.png" />
     <Content Include="img\carrito.png" />
+    <Content Include="img\fondo1.jpg" />
+    <Content Include="img\fondo2.jpg" />
     <Content Include="img\hotdeal.png" />
     <Content Include="img\icon.jpg" />
     <Content Include="img\logofc.jpg" />
@@ -142,18 +144,25 @@
     <Content Include="img\shop02.png" />
     <Content Include="img\shop03.png" />
     <Content Include="img\user.png" />
-    <Content Include="Models\ModelEcommerce.Context.tt">
+    <Content Include="Models\Ecommerce.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelEcommerce.edmx</DependentUpon>
-      <LastGenOutput>ModelEcommerce.Context.cs</LastGenOutput>
+      <DependentUpon>Ecommerce.edmx</DependentUpon>
+      <LastGenOutput>Ecommerce.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ModelEcommerce.tt">
+    <Content Include="Models\Ecommerce.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelEcommerce.edmx</DependentUpon>
-      <LastGenOutput>ModelEcommerce.cs</LastGenOutput>
+      <DependentUpon>Ecommerce.edmx</DependentUpon>
+      <LastGenOutput>Ecommerce.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Ecommerce.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Ecommerce.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Ecommerce.edmx.diagram">
+      <DependentUpon>Ecommerce.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -493,23 +502,22 @@
     <Content Include="vendor\fonts\fontawesome-webfont.svg" />
     <Content Include="vendor\fonts\slick.svg" />
     <Content Include="vendor\icons.css" />
+    <Content Include="vendor\js\blockUI.js" />
     <Content Include="vendor\js\bootstrap.min.js" />
     <Content Include="vendor\js\jquery.min.js" />
     <Content Include="vendor\js\jquery.zoom.min.js" />
     <Content Include="vendor\js\main.js" />
     <Content Include="vendor\js\nouislider.min.js" />
     <Content Include="vendor\js\slick.min.js" />
+    <Content Include="vendor\login\main.css" />
+    <Content Include="vendor\login\main.js" />
+    <Content Include="vendor\login\util.css" />
     <Content Include="Views\Admin\Producto\WfmProductoLista.aspx" />
     <Content Include="Views\Admin\Producto\WfmProductoNuevo.aspx" />
-    <EntityDeploy Include="Models\ModelEcommerce.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelEcommerce.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ModelEcommerce.edmx.diagram">
-      <DependentUpon>ModelEcommerce.edmx</DependentUpon>
-    </Content>
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\login.aspx" />
+    <Content Include="Views\Public\DetalleCompra.aspx" />
     <Content Include="Views\Public\Principal.aspx" />
     <Content Include="Views\Public\Producto.aspx" />
     <Content Include="Web.config" />
@@ -543,58 +551,59 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LogicaNegocio\Cart.cs" />
     <Compile Include="LogicaNegocio\LogicaCategoria.cs" />
+    <Compile Include="LogicaNegocio\LogicaPagos.cs" />
+    <Compile Include="LogicaNegocio\LogicaCliente.cs" />
     <Compile Include="LogicaNegocio\LogicaProducto.cs" />
-    <Compile Include="Models\ModelEcommerce.Context.cs">
+    <Compile Include="LogicaNegocio\LogicaSeguridad.cs" />
+    <Compile Include="Models\Ecommerce.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelEcommerce.Context.tt</DependentUpon>
+      <DependentUpon>Ecommerce.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelEcommerce.cs">
+    <Compile Include="Models\Ecommerce.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelEcommerce.Designer.cs">
+    <Compile Include="Models\Ecommerce.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelEcommerce.edmx</DependentUpon>
+      <DependentUpon>Ecommerce.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_CATEGORIA.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_CLIENTE.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_DETALLE_IMPUESTOS.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_DETALLE_PEDIDO.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TBL_DIRECCION.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_FORMA_PAGO.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_IMPUESTOS.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_PAGOS.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_PEDIDO.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_PRODUCTO.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_ROL.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_USUARIO.cs">
-      <DependentUpon>ModelEcommerce.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -645,6 +654,20 @@
     </Compile>
     <Compile Include="Views\Admin\Producto\WfmProductoNuevo.aspx.designer.cs">
       <DependentUpon>WfmProductoNuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Public\DetalleCompra.aspx.cs">
+      <DependentUpon>DetalleCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Public\DetalleCompra.aspx.designer.cs">
+      <DependentUpon>DetalleCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Public\Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>

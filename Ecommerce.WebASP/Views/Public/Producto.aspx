@@ -45,9 +45,10 @@
                         <label class="product-price">$ <%= _infoPro.PRO_PRECIO_VENTA %> </label>
                     </h2>
                     <p><%= _infoPro.PRO_DESCRIPCION %>.</p>
+                     <asp:TextBox ID="txtCantidad" CssClass="form-control" runat="server" TextMode="Number" value="1"></asp:TextBox>
                     <br />
                     <div class="add-to-cart text-center">
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>add to cart</button>
+                        <asp:LinkButton ID="btnAdd" runat="server" CssClass="add-to-cart-btn" OnClick="btnAdd_Click"><i class="fa fa-shopping-cart"></i>Comprar</asp:LinkButton>
                     </div>
                 </div>
             </div>

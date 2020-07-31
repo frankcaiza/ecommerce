@@ -87,7 +87,8 @@ namespace Ecommerce.WebASP.Views.Public
                     ID = data.PRO_ID,
                     NOMBRE = data.PRO_NOMBRE,
                     PRECIO = data.PRO_PRECIO_VENTA,
-                    IMAGEN = data.PRO_IMAGEN
+                    IMAGEN = data.PRO_IMAGEN,
+                    CATEGORIA = data.TBL_CATEGORIA.CAT_NOMBRE
 
                 }).ToList();
 
@@ -110,8 +111,20 @@ namespace Ecommerce.WebASP.Views.Public
             LinkButton objImage = (LinkButton)sender;
 
             string[] commandArgs = objImage.CommandArgument.ToString().Split(new char[] { ',' });
-            string codigo = commandArgs[0];
-            Response.Redirect("Producto.aspx?cod="+ codigo, true);
+            int idProducto = Convert.ToInt32(commandArgs[0]);
+            TBL_PRODUCTO _infoPro = new TBL_PRODUCTO();
+            var task = Task.Run(() => LogicaProducto.getAllProductxId(idProducto));
+            task.Wait();
+            _infoPro = task.Result;
+
+            List<Cart> _listCart = new List<Cart>();
+            _listCart = (List<Cart>)Session["Cart"];
+
+            Cart _addCart = Cart.intanciaCartXProducto(_infoPro, "1");
+
+            Session["Cart"] = Cart.addCart(_listCart, _addCart);
+
+            Response.Redirect("Principal.aspx", true);
         }
 
         protected void ImageButton2_Click(object sender, EventArgs e)

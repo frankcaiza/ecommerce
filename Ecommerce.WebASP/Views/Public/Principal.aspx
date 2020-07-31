@@ -14,6 +14,7 @@
                                 <asp:ListItem Value="C">Codigo</asp:ListItem>
                                 <asp:ListItem Value="N">Nombre</asp:ListItem>
                                 <asp:ListItem Value="CA">Categoria</asp:ListItem>
+                                <asp:ListItem Value="CO">Comida</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                         <div class="col-sm-4">
@@ -30,21 +31,17 @@
     <div class="section">
         <div class="container">
             <div class="row">
-                <!-- ASIDE -->
                 <div id="aside" class="col-md-2">
-                    <!-- aside Widget -->
                     <div class="aside">
                         <h3 class="aside-title">Categories</h3>
                         <ul class="nav navbar-nav">
                             <li><a href="#">TECNOLOGIA </a></li>
                             <li><a href="#">ELECTRODOMESTICOS</a></li>
-                            <li><a href="#">LIBROS</a></li>
+                            <li><a href="#">COMIDA</a></li>
                         </ul>
                     </div>
-                    <!-- /aside Widget -->
                 </div>
                 <div id="store" class="col-md-9">
-                    <!-- store products -->
                     <div class="row">
                                                                                                                
                         <div class="col-sm-12">
@@ -59,7 +56,9 @@
                                                 </div>
                                             </div>
                                             <div class="product-body">
-                                                <p class="product-category">Category</p>
+                                                <p class="product-category">
+                                                      <asp:Label ID="Label2" runat="server" Text='<%#Eval("CATEGORIA") %>'></asp:Label>
+                                                </p>
                                                 <h3 class="product-name">
                                                     <asp:Label ID="lblNombre" runat="server" Text='<%#Eval("NOMBRE") %>'></asp:Label>
                                                 </h3>
@@ -86,13 +85,8 @@
                         </div>
                     </div>
                     <div class="store-filter clearfix">
-                        <span class="store-qty">Showing 20-100 products</span>
                         <ul class="store-pagination">
                             <li class="active">1</li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                         </ul>
                     </div>
                 </div>

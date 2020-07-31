@@ -20,7 +20,9 @@ namespace Ecommerce.WebASP.Models
         public string USU_CONTRASENA { get; set; }
         public string USU_NOMBRES { get; set; }
         public string USU_APELLIDOS { get; set; }
+        public Nullable<int> USU_INTENTOS { get; set; }
         public string USU_ESTADO { get; set; }
+        public Nullable<System.DateTime> USU_FECHA_ACTUALIZACION { get; set; }
         public Nullable<System.DateTime> USU_FECHA_CREACION { get; set; }
     
         public virtual TBL_ROL TBL_ROL { get; set; }

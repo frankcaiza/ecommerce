@@ -33,5 +33,17 @@ namespace Ecommerce.WebASP.Views.Public
             task.Wait();
             _infoPro = task.Result;
         }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            List<Cart> _listCart = new List<Cart>();
+            _listCart = (List<Cart>)Session["Cart"];
+
+             Cart _addCart = Cart.intanciaCartXProducto(_infoPro,txtCantidad.Text);
+           
+            Session["Cart"] = Cart.addCart(_listCart, _addCart);
+
+            Response.Redirect("Principal.aspx", true);
+        }
     }
 }

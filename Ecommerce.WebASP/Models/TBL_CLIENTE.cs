@@ -17,26 +17,20 @@ namespace Ecommerce.WebASP.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TBL_CLIENTE()
         {
-            this.TBL_DIRECCION = new HashSet<TBL_DIRECCION>();
             this.TBL_PEDIDO = new HashSet<TBL_PEDIDO>();
         }
     
         public int CLI_ID { get; set; }
         public string CLI_DIRECCION { get; set; }
         public string CLI_TELEFONO { get; set; }
-        public string CLI_TIPO_IDENTIFICACION { get; set; }
         public string CLI_IDENTIFICACION { get; set; }
         public Nullable<System.DateTime> CLI_FECHA_CREACION { get; set; }
         public string CLI_ESTADO { get; set; }
         public string CLI_APELLIDOS { get; set; }
         public string CLI_NOMBRES { get; set; }
-        public string CLI_GENERO { get; set; }
         public Nullable<System.DateTime> CLI_FECHA_NACIMIENTO { get; set; }
-        public string CLI_CELULAR { get; set; }
         public string CLI_CORREO { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_DIRECCION> TBL_DIRECCION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_PEDIDO> TBL_PEDIDO { get; set; }
     }

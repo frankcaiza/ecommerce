@@ -26,102 +26,102 @@
 
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <!-- MAIN HEADER -->
-        <div id="header">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <div class="row">
-                    <!-- LOGO -->
-                    <div class="col-md-6">
-                        <div class="header-logo">
-                            <a href="#" class="logo">
-                                <img src='<%=ResolveClientUrl("~/img/logofc.jpg")%>' />
-                            </a>
-                        </div>
-                    </div>
-                    <!-- /LOGO -->
-                    <!-- ACCOUNT -->
-                    <div class="col-md-6 clearfix">
-                        <div class="header-ctn">
-                            <!-- Cart -->
-                            <div class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span>Your Cart</span>
-                                    <div class="qty">3</div>
-                                </a>
-                                <div class="cart-dropdown">
-                                    <div class="cart-list">
-                                        <div class="product-widget">
-                                            <div class="product-img">
-                                                <img src='<%=ResolveClientUrl("~/img/product01.png")%>' />
-                                            </div>
-                                            <div class="product-body">
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                            </div>
-                                            <button class="delete"><i class="fa fa-close"></i></button>
-                                        </div>
-
-                                        <div class="product-widget">
-                                            <div class="product-img">
-                                                <img src='<%=ResolveClientUrl("~/img/product02.png")%>' />
-                                            </div>
-                                            <div class="product-body">
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                            </div>
-                                            <button class="delete"><i class="fa fa-close"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="cart-summary">
-                                        <small>3 Item(s) selected</small>
-                                        <h5>SUBTOTAL: $2940.00</h5>
-                                    </div>
-                                    <div class="cart-btns">
-                                        <a href="#">View Cart</a>
-                                        <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                    <i class="fa fa-user"></i>
-                                    <span>Frank</span>
-                                </a>
-                                <div class="cart-dropdown">
-                                    <div class="cart-list">
-                                        <div class="product-widget">
-                                            <div class="product-img">
-                                                <img src='<%=ResolveClientUrl("~/img/user.png")%>' />
-                                            </div>
-                                            <div class="product-body">
-                                                Frank Caiza 
-													ADMINISTRADOR
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cart-btns">
-                                        <a href="#">Perfil</a>
-                                        <a href="#">Salir</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /Cart -->
-                        </div>
-                    </div>
-                    <!-- /ACCOUNT -->
-                </div>
-                <!-- row -->
-            </div>
-            <!-- container -->
-        </div>
-        <!-- /MAIN HEADER -->
-    </header>
     <form runat="server">
+        <!-- HEADER -->
+        <header>
+            <!-- MAIN HEADER -->
+            <div id="header">
+                <!-- container -->
+                <div class="container">
+                    <!-- row -->
+                    <div class="row">
+                        <!-- LOGO -->
+                        <div class="col-md-6">
+                            <div class="header-logo">
+                                <a href="#" class="logo">
+                                    <img src='<%=ResolveClientUrl("~/img/logofc.jpg")%>' />
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /LOGO -->
+                        <!-- ACCOUNT -->
+                        <div class="col-md-6 clearfix">
+                            <div class="header-ctn">
+                                <!-- Cart -->
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span>Your Cart</span>
+                                        <div class="qty">
+                                            <asp:Label ID="cantidadCart" runat="server" ForeColor="White" Text="0"></asp:Label>
+                                        </div>
+                                    </a>
+                                    <div class="cart-dropdown">
+                                        <div class="cart-list">
+                                            <asp:DataList ID="DataList1" runat="server" RepeatDirection="Vertical" CssClass="col-sm-12">
+                                                <ItemTemplate>
+                                                    <div class="product-widget">
+                                                        <div class="product-img">
+                                                            <img src='<%# ResolveClientUrl(Eval("IMAGEN").ToString()) %>'>
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <h3 class="product-name"><a href="#"><asp:Label ID="Label2" runat="server" Text='<%#Eval("NOMBRE") %>'></asp:Label></a></h3>
+                                                            <h4 class="product-price"><span class="qty"><asp:Label ID="Label3" runat="server" Text='<%#Eval("CANTIDAD") %>'></asp:Label>x</span>$<asp:Label ID="Label1" runat="server" Text='<%#Eval("PVP_BASE") %>'></asp:Label></h4>
+                                                        </div>
+                                                        <button class="delete"><i class="fa fa-close"></i></button>
+                                                    </div>
+                                                </ItemTemplate>
+                                            </asp:DataList>
+                                        </div>
+                                        <div class="cart-summary">
+                                            <small>
+                                                <asp:Label ID="cantidadCart2" runat="server" Text="0"></asp:Label>
+                                                Item(s) selected</small>
+                                            <h5>TOTAL: $<asp:Label ID="totalCart" runat="server" Text="0"></asp:Label></h5>
+                                        </div>
+                                        <div class="cart-btns">
+                                            <asp:LinkButton ID="btnPrincipal" runat="server" OnClick="btnPrincipal_Click">Add Productos</asp:LinkButton>
+                                            <asp:LinkButton ID="btnViewCart" runat="server" OnClick="btnViewCart_Click">Ver Carrito</asp:LinkButton>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                        <i class="fa fa-user"></i>
+                                        <span>
+                                            <asp:Label ID="lbl_username" CssClass="simple-text logo-normal" runat="server" Text=""></asp:Label></span>
+                                    </a>
+                                    <div class="cart-dropdown">
+                                        <div class="cart-list">
+                                            <div class="product-widget">
+                                                <div class="product-img">
+                                                    <img src='<%=ResolveClientUrl("~/img/user.png")%>' />
+                                                </div>
+                                                <div class="product-body">
+                                                    <asp:Label ID="lbl_username2" CssClass="simple-text logo-normal" runat="server" Text=""></asp:Label>
+                                                    <br />
+                                                    <b>
+                                                        <asp:Label ID="lbl_rol" CssClass="simple-text logo-normal" runat="server" Text=""></asp:Label></b>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cart-btns">
+                                            <a href="#">Perfil</a>
+                                            <asp:LinkButton ID="link_cerrar_session" CssClass="dropdown-item" runat="server" OnClick="link_cerrar_session_Click"><i class="fa fa-sign-out pull-right"></i>Salir</asp:LinkButton>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /Cart -->
+                            </div>
+                        </div>
+                        <!-- /ACCOUNT -->
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- container -->
+            </div>
+            <!-- /MAIN HEADER -->
+        </header>
 
         <script src='<%=ResolveClientUrl("~/vendor/js/jquery.min.js")%>'></script>
         <script src='<%=ResolveClientUrl("~/vendor/js/bootstrap.min.js")%>'></script>

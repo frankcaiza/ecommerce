@@ -18,7 +18,6 @@ namespace Ecommerce.WebASP.WebForm.Administrador.Prodcuto
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //  LogicaProducto.getNextSequence();
 
             if (!IsPostBack)
             {
@@ -99,6 +98,7 @@ namespace Ecommerce.WebASP.WebForm.Administrador.Prodcuto
                 if (resultado)
                 {
                     lblMessage.Text = "Registro guardado";
+                    Response.Redirect("WfmProductoNuevo.aspx?cod=" + _infoPro.PRO_ID, true);
                 }
                 else
                 {
@@ -145,6 +145,7 @@ namespace Ecommerce.WebASP.WebForm.Administrador.Prodcuto
                     if (resultado)
                     {
                         lblMessage.Text = "Registro guardado";
+                        Response.Redirect("WfmProductoNuevo.aspx?cod=" + _infoPro.PRO_ID, true);
                     }
                     else
                     {
@@ -174,8 +175,10 @@ namespace Ecommerce.WebASP.WebForm.Administrador.Prodcuto
             else
             {
                 saveProduct();
-               // Response.Redirect("WfmProductoLista.aspx", true);
+               // limpiar();
+                // Response.Redirect("WfmProductoLista.aspx", true);
             }
+       
         }
 
         protected void ImageButton3_Click1(object sender, ImageClickEventArgs e)

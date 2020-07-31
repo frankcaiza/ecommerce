@@ -29,7 +29,6 @@ namespace Ecommerce.WebASP.Models
         public virtual DbSet<TBL_CLIENTE> TBL_CLIENTE { get; set; }
         public virtual DbSet<TBL_DETALLE_IMPUESTOS> TBL_DETALLE_IMPUESTOS { get; set; }
         public virtual DbSet<TBL_DETALLE_PEDIDO> TBL_DETALLE_PEDIDO { get; set; }
-        public virtual DbSet<TBL_DIRECCION> TBL_DIRECCION { get; set; }
         public virtual DbSet<TBL_FORMA_PAGO> TBL_FORMA_PAGO { get; set; }
         public virtual DbSet<TBL_IMPUESTOS> TBL_IMPUESTOS { get; set; }
         public virtual DbSet<TBL_PAGOS> TBL_PAGOS { get; set; }

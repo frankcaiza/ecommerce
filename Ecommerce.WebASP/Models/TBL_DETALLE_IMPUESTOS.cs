@@ -16,11 +16,10 @@ namespace Ecommerce.WebASP.Models
     {
         public int DIM_ID { get; set; }
         public Nullable<int> IMP_ID { get; set; }
-        public Nullable<int> DEP_ID { get; set; }
-        public Nullable<decimal> DIM_VALOR { get; set; }
+        public Nullable<int> PRO_ID { get; set; }
         public string DIM_ESTADO { get; set; }
     
-        public virtual TBL_DETALLE_PEDIDO TBL_DETALLE_PEDIDO { get; set; }
         public virtual TBL_IMPUESTOS TBL_IMPUESTOS { get; set; }
+        public virtual TBL_PRODUCTO TBL_PRODUCTO { get; set; }
     }
 }

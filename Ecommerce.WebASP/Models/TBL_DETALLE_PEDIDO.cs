@@ -14,12 +14,6 @@ namespace Ecommerce.WebASP.Models
     
     public partial class TBL_DETALLE_PEDIDO
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBL_DETALLE_PEDIDO()
-        {
-            this.TBL_DETALLE_IMPUESTOS = new HashSet<TBL_DETALLE_IMPUESTOS>();
-        }
-    
         public int DEP_ID { get; set; }
         public Nullable<int> PED_ID { get; set; }
         public Nullable<System.DateTime> PED_FECHA { get; set; }
@@ -30,8 +24,6 @@ namespace Ecommerce.WebASP.Models
         public Nullable<decimal> DEP_PRECIOTOTAL { get; set; }
         public string DEP_ESTADO { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_DETALLE_IMPUESTOS> TBL_DETALLE_IMPUESTOS { get; set; }
         public virtual TBL_PEDIDO TBL_PEDIDO { get; set; }
         public virtual TBL_PRODUCTO TBL_PRODUCTO { get; set; }
     }
